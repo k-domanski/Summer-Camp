@@ -16,8 +16,9 @@ MonoBehaviour:
   gameId: 033c129e-3706-4af1-b8e2-336583238c27
   gameVersion: 1
   players: 2
-  gameplayScene: 
-  gameplaySceneAsset: {fileID: 0}
+  gameplayScene: Assets/Scenes/MainScene.unity
+  gameplaySceneAsset: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05,
+    type: 3}
   botsInServer: 1
   useWeb: 0
   legacyMatchmakingClient: 0
@@ -50,4 +51,14 @@ MonoBehaviour:
   testMatchData:
     queueName: 
     regionName: 
-  testPlayers: []
+  testPlayers:
+  - userId: 
+    isBot: 0
+    botDifficulty: 0
+    gameEngineData: 
+    matchmakerData: []
+  - userId: 
+    isBot: 0
+    botDifficulty: 0
+    gameEngineData: 
+    matchmakerData: []
