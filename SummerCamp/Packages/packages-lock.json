@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.daftmobile.elympics": {
+      "version": "https://github.com/Elympics/Unity-SDK.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "417117862047a69b0aa4e31c08d721e5348bc632"
+    },
     "com.unity.burst": {
       "version": "1.6.5",
       "depth": 1,
