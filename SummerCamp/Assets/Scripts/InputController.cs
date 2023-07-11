@@ -19,10 +19,10 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
 
         if (ElympicsBehaviour.TryGetInput(ElympicsPlayer.FromIndex(playerId), out var inputReader))
         {
-            inputReader.Read(out verticalMovement);
             inputReader.Read(out horizontalMovement);
+            inputReader.Read(out verticalMovement);
 
-            ProcessMovement(verticalMovement, horizontalMovement);
+            ProcessMovement(horizontalMovement, verticalMovement);
         }
 
     }
@@ -53,8 +53,8 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
         inputWriter.Write(inputProvider.Movement.y);
     }
 
-    private void ProcessMovement(float vertical, float horizontal)
+    private void ProcessMovement(float horizontal, float vertical)
     {
-        movementController.ProcessMovement(vertical, horizontal);
+        movementController.ProcessMovement(horizontal, vertical);
     }
 }

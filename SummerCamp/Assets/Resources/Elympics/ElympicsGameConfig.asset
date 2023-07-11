@@ -52,12 +52,12 @@ MonoBehaviour:
     queueName: 
     regionName: 
   testPlayers:
-  - userId: 
+  - userId: 0
     isBot: 0
     botDifficulty: 0
     gameEngineData: 
     matchmakerData: []
-  - userId: 
+  - userId: 1
     isBot: 0
     botDifficulty: 0
     gameEngineData: 

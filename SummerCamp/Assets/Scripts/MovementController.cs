@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class MovementController : ElympicsMonoBehaviour
 {
     [SerializeField] private float movementSpeed;
     [SerializeField] private float acceleration;
 
-    private Rigidbody rigidbody = null;
+    private Rigidbody2D rb2D = null;
 
     void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
-    public void ProcessMovement(float vertical, float horizontal)
+    public void ProcessMovement(float horizontal, float vertical)
     {
         Vector3 inputVector = new Vector3(horizontal, vertical, 0);
         Vector3 movementDirection = inputVector != Vector3.zero ? this.transform.TransformDirection(inputVector.normalized) : Vector3.zero;
@@ -27,8 +27,8 @@ public class MovementController : ElympicsMonoBehaviour
     private void ApplyMovement(Vector3 movementDirection)
     {
         Vector3 defaultVelocity = movementDirection * movementSpeed;
-        Vector3 fixedVelocity = Vector3.MoveTowards(rigidbody.velocity, defaultVelocity, Elympics.TickDuration * acceleration);
+        Vector3 fixedVelocity = Vector3.MoveTowards(rb2D.velocity, defaultVelocity, Elympics.TickDuration * acceleration);
 
-        rigidbody.velocity = new Vector3(fixedVelocity.x, fixedVelocity.y, rigidbody.velocity.z);
+        rb2D.velocity = new Vector3(fixedVelocity.x, fixedVelocity.y);
     }
 }

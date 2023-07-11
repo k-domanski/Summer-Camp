@@ -92,5 +92,15 @@ PrefabInstance:
       propertyPath: predictableFor.playerIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6260942684111525714, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260942684111525714, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cff24950430567a4b876bbdfbe67d33d, type: 3}
