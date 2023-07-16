@@ -6,10 +6,10 @@ using Elympics;
 [RequireComponent(typeof(InputProvider))]
 public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializable, IUpdatable
 {
-    [SerializeField] private int playerId = 0;
     [SerializeField] private MovementController movementController = null;
 
     private InputProvider inputProvider = null;
+    private PlayerData playerData = null;
 
     #region IUpdatable
     public void ElympicsUpdate()
@@ -17,7 +17,7 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
         float horizontalMovement = 0.0f;
         float verticalMovement = 0.0f;
 
-        if (ElympicsBehaviour.TryGetInput(ElympicsPlayer.FromIndex(playerId), out var inputReader))
+        if (ElympicsBehaviour.TryGetInput(ElympicsPlayer.FromIndex(playerData.PlayerID), out var inputReader))
         {
             inputReader.Read(out horizontalMovement);
             inputReader.Read(out verticalMovement);
@@ -32,6 +32,7 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
     public void Initialize()
     {
         this.inputProvider = GetComponent<InputProvider>();
+        this.playerData = GetComponent<PlayerData>();
     }
     #endregion
 
