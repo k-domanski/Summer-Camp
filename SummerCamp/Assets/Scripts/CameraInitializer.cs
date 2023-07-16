@@ -23,23 +23,22 @@ public class CameraInitializer : ElympicsMonoBehaviour, IInitializable
         if(Elympics.IsClient)
         {
             enableCamera = (int)Elympics.Player == playerID;
-
-            foreach (Camera camera in camerasInChildren)
-            {
-                camera.enabled = enableCamera;
-
-                // ??? from tutorial
-                if (camera.TryGetComponent<AudioListener>(out var audioListener))
-                {
-                    Destroy(audioListener);
-                }
-            }
         }
         else if(Elympics.IsServer)
         {
-            serverCamera.enabled = true;
+            enableCamera = playerID == 0;
         }
 
-        
+        foreach (Camera camera in camerasInChildren)
+        {
+            camera.enabled = enableCamera;
+
+            // ??? from tutorial
+            if (camera.TryGetComponent<AudioListener>(out var audioListener))
+            {
+                Destroy(audioListener);
+            }
+        }
+
     }
 }

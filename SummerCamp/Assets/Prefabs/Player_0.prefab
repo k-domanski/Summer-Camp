@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceNetworkId: 0
-  networkId: 1
+  networkId: 4
   predictableFor:
     playerIndex: 0
   isUpdatableForNonOwners: 0
@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1598fd1d5f2fc9438c8510cce9399f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serverCamera: {fileID: 0}
 --- !u!1001 &4063885449714520982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -395,22 +396,22 @@ PrefabInstance:
     - target: {fileID: 8479146813794226265, guid: b2d37179b59ca7948a15e51b35011884,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 18.75
       objectReference: {fileID: 0}
     - target: {fileID: 8479146813794226265, guid: b2d37179b59ca7948a15e51b35011884,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -17.2
       objectReference: {fileID: 0}
     - target: {fileID: 8479146813794226265, guid: b2d37179b59ca7948a15e51b35011884,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.8870109
       objectReference: {fileID: 0}
     - target: {fileID: 8479146813794226265, guid: b2d37179b59ca7948a15e51b35011884,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.46174863
       objectReference: {fileID: 0}
     - target: {fileID: 8479146813794226265, guid: b2d37179b59ca7948a15e51b35011884,
         type: 3}
@@ -425,7 +426,7 @@ PrefabInstance:
     - target: {fileID: 8479146813794226265, guid: b2d37179b59ca7948a15e51b35011884,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 8479146813794226265, guid: b2d37179b59ca7948a15e51b35011884,
         type: 3}
