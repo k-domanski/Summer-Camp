@@ -9,8 +9,32 @@ public class InputProvider : MonoBehaviour
 
     private Vector2 movement;
 
-    private void OnMove(InputValue value)
+    private MainControls mainControls;
+
+    private void OnEnable()
     {
-        movement = value.Get<Vector2>();
+        mainControls = new MainControls();
+        mainControls.Player.Enable();
+        mainControls.Player.Move.performed += OnMove;
+        mainControls.Player.Move.canceled += OnMove;
+    }
+
+    private void OnDisable()
+    {
+        mainControls.Player.Disable();
+        mainControls.Player.Move.performed -= OnMove;
+        mainControls.Player.Move.canceled -= OnMove;
+    }
+
+    public void DisableInput()
+    {
+        mainControls.Player.Disable();
+
+        // Switch to UI Action Map ?
+    }
+
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        movement = context.ReadValue<Vector2>();
     }
 }

@@ -433,6 +433,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 3735805920808764764, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3735805920808764767, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: networkId
@@ -764,6 +769,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548272981074744605, guid: 1dc4753fdbae70a44ba01fd30447ded6,
+        type: 3}
+      propertyPath: m_UIInputModule
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3226457018249629946, guid: 1dc4753fdbae70a44ba01fd30447ded6,
         type: 3}

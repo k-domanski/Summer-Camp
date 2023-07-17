@@ -12,6 +12,9 @@ public class FinishLine : MonoBehaviour
         if(other.TryGetComponent<PlayerData>(out var playerData))
         {
             onPlayerFinished?.Invoke(playerData.PlayerID);
+
+            //robocze
+            playerData.GetComponent<InputProvider>().DisableInput();
         }
     }
 }
