@@ -1,10 +1,15 @@
 using System;
 using Elympics;
 
-public class GameManager : ElympicsMonoBehaviour
+public class GameManager : ElympicsMonoBehaviour, IUpdatable
 {
     private void Update()
     {
-        throw new NotImplementedException();
+        
+    }
+
+    public void ElympicsUpdate()
+    {
+        
     }
 }
