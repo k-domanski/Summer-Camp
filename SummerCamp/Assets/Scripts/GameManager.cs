@@ -14,8 +14,7 @@ public class GameManager : ElympicsMonoBehaviour, IUpdatable
     public ElympicsFloat CurrentTime { get; } = new ElympicsFloat(0.0f);
     public ElympicsBool IsRunning { get; } = new ElympicsBool();
     public ElympicsBool IsStarting { get; } = new ElympicsBool();
-
-
+    
     private void Awake()
     {
         serverHandler.AllPlayersConnected += StartCountdown;
