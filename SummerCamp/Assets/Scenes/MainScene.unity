@@ -153,8 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fe8af81fd74625877e428f6c65136d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableAtGameStart:
-  - {fileID: 2107130520}
 --- !u!114 &273183152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 519bd60852107434ca86436dcfd357c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serverHandler: {fileID: 273183151}
+  disableAtGameStart:
+  - {fileID: 2107130520}
 --- !u!4 &641445759
 Transform:
   m_ObjectHideFlags: 0
@@ -482,7 +483,7 @@ MonoBehaviour:
   forceNetworkId: 0
   networkId: 8
   predictableFor:
-    playerIndex: -2
+    playerIndex: -3
   isUpdatableForNonOwners: 0
   visibleFor:
     playerIndex: -3
@@ -1157,11 +1158,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1416400199476556055, guid: 55bba704074261445ba43b458fea529d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2846927162795508875, guid: 55bba704074261445ba43b458fea529d,
         type: 3}
       propertyPath: m_RootOrder
@@ -1367,6 +1363,11 @@ PrefabInstance:
       propertyPath: predictableFor.playerIndex
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: 1480823523972308100, guid: 4962226ec01b7f342a920593841dcdfd,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 641445758}
     - target: {fileID: 1480823523972308100, guid: 4962226ec01b7f342a920593841dcdfd,
         type: 3}
       propertyPath: serverHandler

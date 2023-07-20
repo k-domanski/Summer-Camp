@@ -1,15 +1,10 @@
 ﻿using System.Collections.Generic;
 using Elympics;
 using System;
-using UnityEngine;
 
 public class ServerHandler : ElympicsMonoBehaviour, IServerHandlerGuid
 {
     public event Action AllPlayersConnected;
-    public event Action RaceStarted;
-
-    [SerializeField]
-    private GameObject[] disableAtGameStart;
     
     private readonly HashSet<ElympicsPlayer> playersConnected = new HashSet<ElympicsPlayer>();
     
@@ -33,15 +28,5 @@ public class ServerHandler : ElympicsMonoBehaviour, IServerHandlerGuid
 
         gameRunning = true;
         AllPlayersConnected?.Invoke();
-    }
-
-    public void StartRace()
-    {
-        foreach (var gO in disableAtGameStart)
-        {
-            gO.SetActive(false);
-        }
-
-        RaceStarted?.Invoke();
     }
 }
