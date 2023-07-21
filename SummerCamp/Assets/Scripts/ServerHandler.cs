@@ -5,7 +5,6 @@ using System;
 public class ServerHandler : ElympicsMonoBehaviour, IServerHandlerGuid
 {
     public event Action AllPlayersConnected;
-    public event Action RaceStarted;
     
     private readonly HashSet<ElympicsPlayer> playersConnected = new HashSet<ElympicsPlayer>();
     
@@ -29,10 +28,5 @@ public class ServerHandler : ElympicsMonoBehaviour, IServerHandlerGuid
 
         gameRunning = true;
         AllPlayersConnected?.Invoke();
-    }
-
-    public void StartRace()
-    {
-        RaceStarted?.Invoke();
     }
 }

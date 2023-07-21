@@ -144,7 +144,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9101001386271712846}
-  - component: {fileID: 1479715685460876806}
   - component: {fileID: 1480823523972308100}
   m_Layer: 5
   m_Name: Timer
@@ -175,35 +174,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1479715685460876806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9101001386271712847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 334c2a3facb248ac8c1a599797c52dae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forceNetworkId: 0
-  networkId: 209
-  predictableFor:
-    playerIndex: -2
-  isUpdatableForNonOwners: 0
-  visibleFor:
-    playerIndex: -3
-  stateFrequencyStages:
-  - stageDurationInMiliseconds: 500
-    frequencyInMiliseconds: 30
-    maxStageDurationInMiliseconds: 5000
-  - stageDurationInMiliseconds: 1000
-    frequencyInMiliseconds: 200
-    maxStageDurationInMiliseconds: 5000
-  - stageDurationInMiliseconds: 1000
-    frequencyInMiliseconds: 1000
-    maxStageDurationInMiliseconds: 5000
 --- !u!114 &1480823523972308100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raceTimer: {fileID: 9101001386668136945}
   countdownTimer: {fileID: 5031664309295206506}
-  serverHandler: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &9101001386668136951
 GameObject:
   m_ObjectHideFlags: 0
