@@ -11,10 +11,14 @@ public class PlayersProvider : ElympicsMonoBehaviour, IInitializable
     public PlayerData[] AllPlayers { get; private set; }
     public bool IsReady { get; private set; }
 
+    public event Action IsReadyChanged;
+
     public void Initialize()
     {
         FindAllPlayers();
         FindClientPlayer();
+        IsReady = true;
+        IsReadyChanged?.Invoke();
     }
 
     public PlayerData FindPlayerByID(int id)

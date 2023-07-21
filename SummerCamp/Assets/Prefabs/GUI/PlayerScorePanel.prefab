@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1842431455340833302}
   - component: {fileID: 7171442231764117150}
+  - component: {fileID: 3117815539723387679}
   m_Layer: 5
   m_Name: PlayerScorePanel
   m_TagString: Untagged
@@ -54,6 +55,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNameText: {fileID: 8465822896054110472}
   playerTimeText: {fileID: 1813711063568470623}
+--- !u!225 &3117815539723387679
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2326466391919043666}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5196394220096514791
 GameObject:
   m_ObjectHideFlags: 0
