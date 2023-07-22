@@ -3,33 +3,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
-public class MovementController : ElympicsMonoBehaviour
+public class MovementController : ElympicsMonoBehaviour, IUpdatable
 {
     [SerializeField] private float movementSpeed;
     [SerializeField] private float acceleration;
-    [SerializeField]
-    private ElympicsVector3 direction = new ElympicsVector3();
+    [SerializeField] private Camera playerCamera;
+    
     [SerializeField]
     private Animator characterAnimation;
     
     private Rigidbody rb = null;
 
+    private ElympicsVector3 movementdirection = new ElympicsVector3();
+    private ElympicsVector3 lookAt = new ElympicsVector3();
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         if (Elympics.IsClient)
         {
-            direction.ValueChanged += OnDirectionChanged;
+            movementdirection.ValueChanged += OnDirectionChanged;
+            lookAt.ValueChanged += SetLookAt;
         }
+    }
+
+    public void ElympicsUpdate()
+    {
+        if (Elympics.IsClient)
+        {
+            var mousePos = Mouse.current.position.ReadValue();
+            var worldPos = playerCamera.ScreenToWorldPoint(mousePos);
+            worldPos.y = transform.position.y;
+            
+            Debug.Log($"{mousePos} | {worldPos}");
+            lookAt.Value = worldPos;
+        }
+        
+    }
+
+    private void SetLookAt(Vector3 lastvalue, Vector3 newvalue)
+    {
+        characterAnimation.transform.LookAt(newvalue);
     }
 
     private void OnDestroy()
     {
         if (Elympics.IsClient)
         {
-            direction.ValueChanged -= OnDirectionChanged;
+            movementdirection.ValueChanged -= OnDirectionChanged;
+            lookAt.ValueChanged -= SetLookAt;
         }
     }
 
@@ -51,7 +75,7 @@ public class MovementController : ElympicsMonoBehaviour
 
     private void ApplyMovement(Vector3 movementDirection)
     {
-        direction.Value = movementDirection; 
+        movementdirection.Value = movementDirection; 
         Vector3 defaultVelocity = movementDirection * movementSpeed;
         Vector3 fixedVelocity = Vector3.MoveTowards(rb.velocity, defaultVelocity, Elympics.TickDuration * acceleration);
 

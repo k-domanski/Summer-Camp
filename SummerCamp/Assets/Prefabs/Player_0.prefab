@@ -210,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   acceleration: 80
+  playerCamera: {fileID: 5606464021315961804}
   characterAnimation: {fileID: 1779815224681970439}
 --- !u!114 &3735805920808764765
 MonoBehaviour:
@@ -359,6 +360,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2d37179b59ca7948a15e51b35011884, type: 3}
+--- !u!20 &5606464021315961804 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8479146813794226266, guid: b2d37179b59ca7948a15e51b35011884,
+    type: 3}
+  m_PrefabInstance: {fileID: 4063885449714520982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5606464021315961807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8479146813794226265, guid: b2d37179b59ca7948a15e51b35011884,
