@@ -1218,7 +1218,7 @@ PrefabInstance:
     - target: {fileID: 3735805920808764767, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: predictableFor.playerIndex
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6260942684111525714, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}

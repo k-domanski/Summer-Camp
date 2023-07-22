@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputProvider : MonoBehaviour
 {
-    public Vector2 Movement => movement;
-
-    private Vector2 movement;
+    public Vector2 Movement { get; private set; }
+    public Vector2 MousePos { get; private set; }
 
     private MainControls mainControls;
 
@@ -33,8 +30,13 @@ public class InputProvider : MonoBehaviour
         // Switch to UI Action Map ?
     }
 
+    private void FixedUpdate()
+    {
+        MousePos = Mouse.current.position.ReadValue();
+    }
+
     private void OnMove(InputAction.CallbackContext context)
     {
-        movement = context.ReadValue<Vector2>();
+        Movement = context.ReadValue<Vector2>();
     }
 }
