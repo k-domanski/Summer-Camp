@@ -10,13 +10,14 @@ public class PlayerScoresManager : ElympicsMonoBehaviour, IInitializable
     [SerializeField] private GameManager gameManager;
     [SerializeField] private FinishLine finishLine;
 
+    public bool IsReady { get; private set; } = false;
+
     public event Action<int, int, float> onPlayerFinished;
-    public bool isReady = false;
     public event Action IsReadyChanged = null;
 
     private ElympicsArray<ElympicsFloat> playerScores;
-    public ElympicsInt playerIndex = new ElympicsInt(0);
-    public ElympicsInt playerID = new ElympicsInt(-1);
+    private ElympicsInt playerIndex = new ElympicsInt(0);
+    private ElympicsInt playerID = new ElympicsInt(-1);
 
     public void Initialize()
     {
@@ -47,7 +48,7 @@ public class PlayerScoresManager : ElympicsMonoBehaviour, IInitializable
         finishLine.onPlayerFinished += ProcessPlayerFinish;
         playerID.ValueChanged += OnPlayerFinish;
 
-        isReady = true;
+        IsReady = true;
         IsReadyChanged?.Invoke();
     }
 

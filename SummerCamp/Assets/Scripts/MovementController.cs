@@ -43,7 +43,7 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
         var forwardDir = characterAnimation.transform.forward;
 
         float angle = Vector3.SignedAngle(movement.Value, forwardDir, Vector3.down);
-        Debug.Log($"MoveDir { movement.Value} | LookDir {forwardDir} | Angle: {angle}");
+        //Debug.Log($"MoveDir { movement.Value} | LookDir {forwardDir} | Angle: {angle}");
         characterAnimation.SetBool("Moving",movement.Value.magnitude > 0);
         characterAnimation.SetFloat("MoveAngle",angle);
     }

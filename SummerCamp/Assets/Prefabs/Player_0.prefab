@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceNetworkId: 0
-  networkId: 219
+  networkId: 220
   predictableFor:
     playerIndex: 0
   isUpdatableForNonOwners: 0
@@ -445,6 +445,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 6d2433a581e3c60448c2614467844374, type: 2}
+    - target: {fileID: 2686890238592446898, guid: 7856c197eb4c77840878eba92e1c48b7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c5ea6518f1ee774ebd3ec3d8f331557, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7856c197eb4c77840878eba92e1c48b7, type: 3}
 --- !u!95 &1779815224681970439 stripped
