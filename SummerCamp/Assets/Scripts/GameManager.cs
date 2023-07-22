@@ -48,7 +48,7 @@ public class GameManager : ElympicsMonoBehaviour, IUpdatable
     {
         if(Elympics.IsServer)
         {
-            if (IsStarting)
+            if (IsStarting.Value)
             {
                 CurrentTime.Value -= Elympics.TickDuration;
                 if (CurrentTime.Value <= 0)
@@ -56,7 +56,7 @@ public class GameManager : ElympicsMonoBehaviour, IUpdatable
                     StartRace();
                 }
             }
-            else if (IsRunning)
+            else if (IsRunning.Value)
             {
                 CurrentTime.Value += Elympics.TickDuration;
             }

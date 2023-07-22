@@ -12,8 +12,8 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
     private Rigidbody rb = null;
     private PlayerData playerData;
     
-    protected ElympicsVector3 movementdirection = new ElympicsVector3();
     protected ElympicsVector3 lookAt = new ElympicsVector3();
+    protected ElympicsVector3 movement = new ElympicsVector3();
     
     void Awake()
     {
@@ -21,7 +21,6 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
         playerData = GetComponent<PlayerData>();
         if (Elympics.IsClient)
         {
-            movementdirection.ValueChanged += OnDirectionChanged;
             lookAt.ValueChanged += OnLookAtChanged;
         }
     }
@@ -33,7 +32,6 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
     {
         if (Elympics.IsClient)
         {
-            movementdirection.ValueChanged -= OnDirectionChanged;
             lookAt.ValueChanged -= OnLookAtChanged;
         }
     }
@@ -41,28 +39,27 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
     private void OnLookAtChanged(Vector3 lastvalue, Vector3 newvalue)
     {
         characterAnimation.transform.LookAt(newvalue);
-    }
-    
-    private void OnDirectionChanged(Vector3 lastvalue, Vector3 newvalue)
-    {
-        characterAnimation.SetBool("Forward",newvalue.x > 0 );
-        characterAnimation.SetBool("Backward",newvalue.x < 0 );
-        characterAnimation.SetBool("Left",newvalue.z > 0 );
-        characterAnimation.SetBool("Right",newvalue.z < 0 );
+
+        var forwardDir = characterAnimation.transform.forward;
+
+        float angle = Vector3.SignedAngle(movement.Value, forwardDir, Vector3.down);
+        Debug.Log($"MoveDir { movement.Value} | LookDir {forwardDir} | Angle: {angle}");
+        characterAnimation.SetBool("Moving",movement.Value.magnitude > 0);
+        characterAnimation.SetFloat("MoveAngle",angle);
     }
 
     public void ProcessInput(Vector3 movement, Vector3 rotation)
     {
-        Vector3 movementDirection = movement != Vector3.zero ? this.transform.TransformDirection(movement.normalized) : Vector3.zero;
+        Vector3 direction = movement != Vector3.zero ? this.transform.TransformDirection(movement.normalized) : Vector3.zero;
 
-        ApplyMovement(movementDirection);
+        ApplyMovement(direction);
         ApplyRotation(rotation);
     }
 
-    private void ApplyMovement(Vector3 movementDirection)
+    private void ApplyMovement(Vector3 direction)
     {
-        movementdirection.Value = movementDirection; 
-        Vector3 defaultVelocity = movementDirection * movementSpeed;
+        movement.Value = direction;
+        Vector3 defaultVelocity = direction * movementSpeed;
         Vector3 fixedVelocity = Vector3.MoveTowards(rb.velocity, defaultVelocity, Elympics.TickDuration * acceleration);
 
         rb.velocity = new Vector3(fixedVelocity.x, rb.velocity.y, fixedVelocity.z);

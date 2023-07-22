@@ -66,7 +66,7 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
         var worldPos = playerCamera.ScreenToWorldPoint(v3mousePos);
         
         inputWriter.Write(worldPos.x);
-        inputWriter.Write(worldPos.y);
+        inputWriter.Write(worldPos.z);
     }
 
     private void ProcessInput(Vector3 movement, Vector3 rotation)
