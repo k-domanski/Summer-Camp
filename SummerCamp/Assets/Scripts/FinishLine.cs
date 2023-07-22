@@ -6,21 +6,14 @@ using Elympics;
 
 public class FinishLine : ElympicsMonoBehaviour
 {
-    [SerializeField] PlayersProvider playersProvider;
     public event Action<int> onPlayerFinished;
     
-    private bool reachedFinish;
-
     private void OnTriggerEnter(Collider other)
     {
-        if (Elympics.IsServer)
-            return;
-
         if(other.TryGetComponent<PlayerData>(out var playerData))
         {
-            if (!reachedFinish)
+            if (Elympics.IsServer)
             {
-                reachedFinish = playersProvider.ClientPlayer.PlayerID == playerData.PlayerID;
                 onPlayerFinished?.Invoke(playerData.PlayerID);
             }
 
