@@ -20,8 +20,7 @@ public class MatchmakingManager : MonoBehaviour
 
     public void PlayOnline()
     {
-        //ElympicsLobbyClient.Instance.PlayOnlineInRegion(null, null, null, "Default");
-        Debug.Log("Button Pressed");
+        ElympicsLobbyClient.Instance.PlayOnlineInRegion(null, null, null, "Default");
         startButton.interactable = false;
     }
 }
