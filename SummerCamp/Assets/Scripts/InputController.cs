@@ -5,12 +5,14 @@ using Elympics;
 public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializable, IUpdatable
 {
     [SerializeField] private MovementController movementController = null;
+    [SerializeField] private SkillController skillController = null;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float additionalRaycastDistance = 0.5f;
     
     private InputProvider inputProvider = null;
     private PlayerData playerData = null;
     private float raycastDistance;
+    
     private void Start()
     {
         raycastDistance = Vector3.Magnitude(this.transform.position - playerCamera.transform.position) + additionalRaycastDistance;
@@ -23,6 +25,7 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
         float verticalMovement = 0.0f;
         float worldLookPosX = 0f;
         float worldLookPosZ = 0f;
+        bool isFire = false;
 
         if (ElympicsBehaviour.TryGetInput(ElympicsPlayer.FromIndex(playerData.PlayerID), out var inputReader))
         {
@@ -30,10 +33,11 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
             inputReader.Read(out verticalMovement);
             inputReader.Read(out worldLookPosX);
             inputReader.Read(out worldLookPosZ);
+            inputReader.Read(out isFire);
 
             ProcessInput(new Vector3(horizontalMovement,0, verticalMovement),new Vector3(worldLookPosX,0,worldLookPosZ));
+            skillController.ProcessInput(isFire);
         }
-
     }
     #endregion
 
@@ -67,6 +71,8 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
         
         inputWriter.Write(worldPos.x);
         inputWriter.Write(worldPos.z);
+
+        inputWriter.Write(inputProvider.IsFire);
     }
 
     private void ProcessInput(Vector3 movement, Vector3 rotation)
