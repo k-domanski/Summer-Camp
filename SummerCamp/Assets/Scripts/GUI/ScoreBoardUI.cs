@@ -13,17 +13,25 @@ public class ScoreBoardUI : MonoBehaviour
 
     private void Awake()
     {
+        if(scoresManager.IsReady)
+        {
+            Setup();
+        }
+        else
+        {
+            scoresManager.IsReadyChanged += Setup;
+        }
         HideUI();
-    }
-
-    private void OnEnable()
-    {
-        scoresManager.onPlayerFinished += UpdateScore;
     }
 
     private void OnDestroy()
     {
         scoresManager.onPlayerFinished -= UpdateScore;
+    }
+
+    private void Setup()
+    {
+        scoresManager.onPlayerFinished += UpdateScore;
     }
 
     private void HideUI()
