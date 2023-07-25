@@ -40,11 +40,13 @@ public class Projectile : ElympicsMonoBehaviour, IInitializable, IUpdatable
         if (other.transform.root.gameObject == owner.Value.gameObject)
             return;
 
-        if(other.TryGetComponent<PlayerData>(out var playerData))
+        //DIRTY WAY TO IMPLEMENT SKILL EFFECT
+        if (other.TryGetComponent<MovementController>(out var movementController))
         {
-            Debug.Log($"COLLISION WITH PLAYER: {playerData.PlayerID}");
+            movementController.ApplySlow();
         }
-
+        ////////////////////////////////////////
+        
         this.isReadyToDestroy.Value = true;
     }
 }

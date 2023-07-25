@@ -14,6 +14,12 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
     
     protected ElympicsVector3 lookAt = new ElympicsVector3();
     protected ElympicsVector3 movement = new ElympicsVector3();
+
+    //DIRTY WAY TO IMPLEMENT SKILL EFFECT
+    private ElympicsBool isSlowed = new ElympicsBool();
+    private ElympicsFloat currentEffectDuration = new ElympicsFloat();
+    [SerializeField] private float effectDuration = 3.0f;
+    ////////////////////////////////////////
     
     void Awake()
     {
@@ -26,6 +32,20 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
     }
     public void ElympicsUpdate()
     {
+        //DIRTY WAY TO IMPLEMENT SKILL EFFECT
+        movementSpeed = isSlowed.Value ? 1.0f : 10.0f; 
+        if(isSlowed.Value)
+        {
+            currentEffectDuration.Value += Elympics.TickDuration;
+        }
+
+        if(currentEffectDuration.Value > effectDuration)
+        {
+            isSlowed.Value = false;
+            currentEffectDuration.Value = 0.0f;
+        }
+        ////////////////////////////////////////
+
     }
 
     private void OnDestroy()
@@ -35,7 +55,17 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
             lookAt.ValueChanged -= OnLookAtChanged;
         }
     }
-    
+
+    //DIRTY WAY TO IMPLEMENT SKILL EFFECT
+    public void ApplySlow()
+    {
+        if (isSlowed.Value)
+            return;
+        isSlowed.Value = true;
+        currentEffectDuration.Value = 0.0f;
+    }
+    ////////////////////////////////////////
+
     private void OnLookAtChanged(Vector3 lastvalue, Vector3 newvalue)
     {
         characterAnimation.transform.LookAt(newvalue);
