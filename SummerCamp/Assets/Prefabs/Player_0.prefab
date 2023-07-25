@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceNetworkId: 0
-  networkId: 234
+  networkId: 242
   predictableFor:
     playerIndex: 0
   isUpdatableForNonOwners: 0
@@ -142,7 +142,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!114 &3735805920808764767
 MonoBehaviour:
@@ -332,7 +332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6902670662414913769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.28, z: 0.46}
+  m_LocalPosition: {x: 0, y: 1.43, z: 0.962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -354,7 +354,7 @@ PrefabInstance:
     - target: {fileID: 4945284577689898896, guid: b6373f60be0104e4cbb4aaffa10adc38,
         type: 3}
       propertyPath: networkId
-      value: 233
+      value: 241
       objectReference: {fileID: 0}
     - target: {fileID: 4945284577689898897, guid: b6373f60be0104e4cbb4aaffa10adc38,
         type: 3}

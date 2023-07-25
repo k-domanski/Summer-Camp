@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Elympics;
 
 public class ProjectileSkill : ASkill
 {
@@ -19,6 +20,9 @@ public class ProjectileSkill : ASkill
 
     private GameObject CreateProjectile()
     {
-        return ElympicsInstantiate(projectilePrefab.gameObject.name, this.PredictableFor);
+        var projectile = ElympicsInstantiate(projectilePrefab.gameObject.name, this.PredictableFor);
+        projectile.GetComponent<Projectile>().SetOwner(transform.root.gameObject.GetComponent<ElympicsBehaviour>());
+
+        return projectile;
     }
 }
