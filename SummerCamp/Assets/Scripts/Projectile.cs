@@ -27,6 +27,7 @@ public class Projectile : ElympicsMonoBehaviour, IInitializable, IUpdatable
     {
         rb.velocity = direction * speed;
     }
+
     public void SetOwner(ElympicsBehaviour owner)
     {
         this.owner.Value = owner;
