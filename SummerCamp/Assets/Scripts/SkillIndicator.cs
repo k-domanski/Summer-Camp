@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
 
-public class SkillIndicator : ElympicsMonoBehaviour
+public class SkillIndicator : MonoBehaviour
 {
     private void Awake()
     {

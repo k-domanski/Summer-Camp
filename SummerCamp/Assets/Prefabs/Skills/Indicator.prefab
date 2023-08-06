@@ -186,7 +186,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8788895639123342194}
-  - component: {fileID: 2622684172063075606}
   - component: {fileID: 431285091564027710}
   m_Layer: 0
   m_Name: Indicator
@@ -211,35 +210,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2622684172063075606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7396445346987580114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 334c2a3facb248ac8c1a599797c52dae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forceNetworkId: 0
-  networkId: 259
-  predictableFor:
-    playerIndex: 0
-  isUpdatableForNonOwners: 0
-  visibleFor:
-    playerIndex: -3
-  stateFrequencyStages:
-  - stageDurationInMiliseconds: 500
-    frequencyInMiliseconds: 30
-    maxStageDurationInMiliseconds: 5000
-  - stageDurationInMiliseconds: 1000
-    frequencyInMiliseconds: 200
-    maxStageDurationInMiliseconds: 5000
-  - stageDurationInMiliseconds: 1000
-    frequencyInMiliseconds: 1000
-    maxStageDurationInMiliseconds: 5000
 --- !u!114 &431285091564027710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,5 +222,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c771df1a087954cb83e4e61278db0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indicator: {fileID: 8788895639123342194}
-  prefab: {fileID: 700805329768492445, guid: d2beccb6cca2a8a429615e76808de2d1, type: 3}
