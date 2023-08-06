@@ -8,11 +8,11 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
     [SerializeField] private SkillController skillController = null;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float additionalRaycastDistance = 0.5f;
-    
+
     private InputProvider inputProvider = null;
     private PlayerData playerData = null;
     private float raycastDistance;
-    
+
     private void Start()
     {
         raycastDistance = Vector3.Magnitude(this.transform.position - playerCamera.transform.position) + additionalRaycastDistance;
@@ -26,7 +26,11 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
         float worldLookPosX = 0f;
         float worldLookPosZ = 0f;
         bool isFire = false;
+        bool isSkillActive = false;
 
+        float worldPosX = 0.0f;
+        float worldPosZ = 0.0f;
+       
         if (ElympicsBehaviour.TryGetInput(ElympicsPlayer.FromIndex(playerData.PlayerID), out var inputReader))
         {
             inputReader.Read(out horizontalMovement);
@@ -34,9 +38,17 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
             inputReader.Read(out worldLookPosX);
             inputReader.Read(out worldLookPosZ);
             inputReader.Read(out isFire);
+            inputReader.Read(out isSkillActive);
+
+
+            inputReader.Read(out worldPosX);
+            inputReader.Read(out worldPosZ);
 
             ProcessInput(new Vector3(horizontalMovement,0, verticalMovement),new Vector3(worldLookPosX,0,worldLookPosZ));
-            skillController.ProcessInput(isFire);
+
+            
+            skillController.ProcessInput(isFire, isSkillActive, new Vector3(worldPosX, 0, worldPosZ));
+
         }
     }
     #endregion
@@ -68,11 +80,24 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
 
         var v3mousePos = new Vector3(inputProvider.MousePos.x, inputProvider.MousePos.y, raycastDistance);
         var worldPos = playerCamera.ScreenToWorldPoint(v3mousePos);
-        
+
         inputWriter.Write(worldPos.x);
         inputWriter.Write(worldPos.z);
 
-        inputWriter.Write(inputProvider.IsFire);
+        inputWriter.Write(inputProvider.FireSkill);
+        inputWriter.Write(inputProvider.ActiveSkill);
+        
+        
+        Vector3 worldPosition = CalculateScreenToWorld(inputProvider.MousePos);
+        inputWriter.Write(worldPosition.x);
+        inputWriter.Write(worldPosition.z);
+    }
+
+    private Vector3 CalculateScreenToWorld(Vector2 mousePosition)
+    {
+        Ray ray = playerCamera.ScreenPointToRay(new Vector3(mousePosition.x, mousePosition.y, 0));
+        Physics.Raycast(ray, out RaycastHit hit);
+        return hit.point;
     }
 
     private void ProcessInput(Vector3 movement, Vector3 rotation)

@@ -1161,7 +1161,7 @@ PrefabInstance:
     - target: {fileID: 8361157285573323961, guid: ea3db4331623e8b4891e9728ecf7c17b,
         type: 3}
       propertyPath: networkId
-      value: 248
+      value: 253
       objectReference: {fileID: 0}
     - target: {fileID: 8361157285573323961, guid: ea3db4331623e8b4891e9728ecf7c17b,
         type: 3}

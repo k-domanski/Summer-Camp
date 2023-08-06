@@ -6,13 +6,21 @@ using Elympics;
 //Temporary
 public class SkillController : ElympicsMonoBehaviour
 {
-    [SerializeField] private ASkill skill;
+    [SerializeField] private ASkill currentSkill;
+    //[SerializeField] private List<ASkill> availableSkills = new List<ASkill>();
 
-    public void ProcessInput(bool isFire)
+    public void ProcessInput(bool isFire, bool isActive, Vector3 worldPos)
     {
-        if(isFire)
+        currentSkill.Indicator.ShowIndicator(isActive);
+
+        if(isActive)
         {
-            skill.PerformPrimaryAction();
+            currentSkill.UpdateAimPosition(worldPos);
+            
+            if (isFire)
+            {
+                currentSkill.PerformPrimaryAction();
+            }
         }
     }
 }

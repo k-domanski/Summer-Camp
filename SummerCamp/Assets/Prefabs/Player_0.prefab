@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceNetworkId: 0
-  networkId: 242
+  networkId: 252
   predictableFor:
     playerIndex: 0
   isUpdatableForNonOwners: 0
@@ -213,6 +213,7 @@ MonoBehaviour:
   movementSpeed: 10
   acceleration: 80
   characterAnimation: {fileID: 1779815224681970439}
+  effectDuration: 3
 --- !u!114 &3735805920808764765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +230,9 @@ MonoBehaviour:
   skillController: {fileID: 0}
   playerCamera: {fileID: 5606464021315961804}
   additionalRaycastDistance: 0.25
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &3931850310245502397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61588d8d6cf3684b8acf8e683ee08ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill: {fileID: 0}
+  currentSkill: {fileID: 0}
+  availableSkills: []
 --- !u!1 &6902670662414913769
 GameObject:
   m_ObjectHideFlags: 0

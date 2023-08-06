@@ -8,6 +8,19 @@ public class ProjectileSkill : ASkill
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Projectile projectilePrefab;
 
+    private Vector3 direction;
+
+    public override void UpdateAimPosition(Vector3 worldPosition)
+    {
+        indicator.ApplyPosition(worldPosition);
+        worldPosition.y = spawnPoint.position.y;
+        direction = (worldPosition - spawnPoint.position).normalized;
+        
+        #if UNITY_EDITOR
+        Debug.DrawRay(spawnPoint.position, direction * 100.0f, Color.red);
+        #endif
+    }
+
     protected override void ProcessSkillAction()
     {
         var projectile = CreateProjectile();
@@ -15,7 +28,7 @@ public class ProjectileSkill : ASkill
         projectile.transform.position = spawnPoint.position;
         projectile.transform.rotation = spawnPoint.transform.rotation;
 
-        projectile.GetComponent<Projectile>().Launch(spawnPoint.transform.forward);
+        projectile.GetComponent<Projectile>().Launch(direction);
     }
 
     private GameObject CreateProjectile()

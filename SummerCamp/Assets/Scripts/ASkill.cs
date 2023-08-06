@@ -6,9 +6,11 @@ using Elympics;
 public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
 {
     [SerializeField] protected float fireRate = 60.0f;
-    
+    [SerializeField] protected SkillIndicator indicator;
+
     public float TimeBetweenShots => timeBetweenShots;
     public GameObject Owner => transform.root.gameObject;
+    public SkillIndicator Indicator => indicator;
 
     protected ElympicsFloat currentTimeBetweenShots = new ElympicsFloat(0.0f);
     protected float timeBetweenShots = 0.0f;
@@ -36,6 +38,8 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
         ExecutePrimaryActionIfReady();
     }
 
+    public abstract void UpdateAimPosition(Vector3 worldPosition);
+
     protected abstract void ProcessSkillAction();
 
     private void ExecutePrimaryActionIfReady()
@@ -57,6 +61,5 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
         {
             timeBetweenShots = 0.0f;
         }
-
     }
 }
