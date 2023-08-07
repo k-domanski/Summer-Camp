@@ -5,14 +5,20 @@ using Elympics;
 
 public class ProjectileSkill : ASkill
 {
+    [SerializeField] private float range;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Projectile projectilePrefab;
 
     private Vector3 direction;
 
+    private void Start()
+    {
+        indicator.ApplyRange(range);
+    }
+
     public override void UpdateAimPosition(Vector3 worldPosition)
     {
-        indicator.ApplyPosition(worldPosition);
+        indicator.ApplyRotation(worldPosition);
         worldPosition.y = spawnPoint.position.y;
         direction = (worldPosition - spawnPoint.position).normalized;
         
