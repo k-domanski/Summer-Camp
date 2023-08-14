@@ -5,12 +5,14 @@ using Elympics;
 
 public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
 {
+    [SerializeField] private int skillID;
     [SerializeField] protected float fireRate = 60.0f;
     [SerializeField] protected SkillIndicator indicator;
 
     public float TimeBetweenShots => timeBetweenShots;
     public GameObject Owner => transform.root.gameObject;
     public SkillIndicator Indicator => indicator;
+    public int SkillID => skillID;
 
     protected ElympicsFloat currentTimeBetweenShots = new ElympicsFloat(0.0f);
     protected float timeBetweenShots = 0.0f;

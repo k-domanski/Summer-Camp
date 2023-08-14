@@ -9,7 +9,7 @@ public class CameraInitializer : ElympicsMonoBehaviour, IInitializable
 
     public void Initialize()
     {
-        PlayerData playerData = GetComponent<PlayerData>();
+        PlayerData playerData = GetComponentInChildren<PlayerData>();
 
         InitilizeCameras(playerData.PlayerID);
     }

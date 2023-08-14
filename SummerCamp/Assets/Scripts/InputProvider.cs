@@ -7,7 +7,9 @@ public class InputProvider : MonoBehaviour
     public Vector2 Movement { get; private set; }
     public Vector2 MousePos { get; private set; }
     public bool FireSkill { get; private set; }
-    public bool ActiveSkill { get; private set; }
+    public bool FireSecondarySkill { get; private set; }
+    public bool ActivePrimarySkill { get; private set; }
+    public bool ActiveSecondarySkill { get; private set; }
 
     private MainControls mainControls;
 
@@ -39,6 +41,8 @@ public class InputProvider : MonoBehaviour
         mainControls.Player.Fire.canceled += OnFire;
         mainControls.Player.Skill.started += OnSkill;
         mainControls.Player.Skill.canceled += OnSkill;
+        mainControls.Player.Attack.started += OnAttack;
+        mainControls.Player.Attack.canceled += OnAttack;
         mainControls.Player.MousePos.performed += OnMouseMove;
     }
 
@@ -50,6 +54,8 @@ public class InputProvider : MonoBehaviour
         mainControls.Player.Fire.canceled -= OnFire;
         mainControls.Player.Skill.started -= OnSkill;
         mainControls.Player.Skill.canceled -= OnSkill;
+        mainControls.Player.Attack.started -= OnAttack;
+        mainControls.Player.Attack.canceled -= OnAttack;
         mainControls.Player.MousePos.performed -= OnMouseMove;
     }
 
@@ -66,8 +72,14 @@ public class InputProvider : MonoBehaviour
 
     private void OnSkill(InputAction.CallbackContext context)
     {
-        ActiveSkill = context.started ? true : false;
-        ActiveSkill = context.canceled ? false : true;
+        ActivePrimarySkill = context.started ? true : false;
+        ActivePrimarySkill = context.canceled ? false : true;
+    }
+    
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        ActiveSecondarySkill = context.started ? true : false;
+        ActiveSecondarySkill = context.canceled ? false : true;
     }
 
     private void OnMouseMove(InputAction.CallbackContext context)

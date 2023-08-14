@@ -1,3 +1,4 @@
+using System.Text;
 using UnityEngine;
 using Elympics;
 
@@ -5,7 +6,6 @@ using Elympics;
 public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializable, IUpdatable
 {
     [SerializeField] private MovementController movementController = null;
-    [SerializeField] private SkillController skillController = null;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float additionalRaycastDistance = 0.5f;
 
@@ -27,6 +27,7 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
         float worldLookPosZ = 0f;
         bool isFire = false;
         bool isSkillActive = false;
+        bool isSecondaryActive = false;
 
         float worldPosX = 0.0f;
         float worldPosZ = 0.0f;
@@ -39,6 +40,7 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
             inputReader.Read(out worldLookPosZ);
             inputReader.Read(out isFire);
             inputReader.Read(out isSkillActive);
+            inputReader.Read(out isSecondaryActive);
 
 
             inputReader.Read(out worldPosX);
@@ -46,8 +48,8 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
 
             ProcessInput(new Vector3(horizontalMovement,0, verticalMovement),new Vector3(worldLookPosX,0,worldLookPosZ));
 
-            
-            skillController.ProcessInput(isFire, isSkillActive, new Vector3(worldPosX, 0, worldPosZ));
+            playerData.UsePrimary(isFire, isSkillActive, new Vector3(worldPosX, 0, worldPosZ));
+            playerData.UseSecondary(isFire, isSecondaryActive, new Vector3(worldPosX, 0, worldPosZ));
 
         }
     }
@@ -57,7 +59,7 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
     public void Initialize()
     {
         this.inputProvider = GetComponent<InputProvider>();
-        this.playerData = GetComponent<PlayerData>();
+        this.playerData = GetComponentInChildren<PlayerData>();
     }
     #endregion
 
@@ -85,7 +87,8 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
         inputWriter.Write(worldPos.z);
 
         inputWriter.Write(inputProvider.FireSkill);
-        inputWriter.Write(inputProvider.ActiveSkill);
+        inputWriter.Write(inputProvider.ActivePrimarySkill);
+        inputWriter.Write(inputProvider.ActiveSecondarySkill);
         
         
         Vector3 worldPosition = CalculateScreenToWorld(inputProvider.MousePos);

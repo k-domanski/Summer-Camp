@@ -73,6 +73,15 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""40e7f7b7-0e1f-4ff4-99f5-6174005b3c6d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -315,6 +324,17 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MousePos"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""495a8f9f-7386-4ccf-88f5-0a3d02988100"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -907,6 +927,7 @@ namespace UnityEngine.InputSystem
             m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
             m_Player_Skill = m_Player.FindAction("Skill", throwIfNotFound: true);
             m_Player_MousePos = m_Player.FindAction("MousePos", throwIfNotFound: true);
+            m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -983,6 +1004,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_Fire;
         private readonly InputAction m_Player_Skill;
         private readonly InputAction m_Player_MousePos;
+        private readonly InputAction m_Player_Attack;
         public struct PlayerActions
         {
             private @MainControls m_Wrapper;
@@ -992,6 +1014,7 @@ namespace UnityEngine.InputSystem
             public InputAction @Fire => m_Wrapper.m_Player_Fire;
             public InputAction @Skill => m_Wrapper.m_Player_Skill;
             public InputAction @MousePos => m_Wrapper.m_Player_MousePos;
+            public InputAction @Attack => m_Wrapper.m_Player_Attack;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1016,6 +1039,9 @@ namespace UnityEngine.InputSystem
                     @MousePos.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
                     @MousePos.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
                     @MousePos.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePos;
+                    @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                    @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                    @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1035,6 +1061,9 @@ namespace UnityEngine.InputSystem
                     @MousePos.started += instance.OnMousePos;
                     @MousePos.performed += instance.OnMousePos;
                     @MousePos.canceled += instance.OnMousePos;
+                    @Attack.started += instance.OnAttack;
+                    @Attack.performed += instance.OnAttack;
+                    @Attack.canceled += instance.OnAttack;
                 }
             }
         }
@@ -1196,6 +1225,7 @@ namespace UnityEngine.InputSystem
             void OnFire(InputAction.CallbackContext context);
             void OnSkill(InputAction.CallbackContext context);
             void OnMousePos(InputAction.CallbackContext context);
+            void OnAttack(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
