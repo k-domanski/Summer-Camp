@@ -1721,6 +1721,11 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 641445758}
+    - target: {fileID: 476014704054538892, guid: 90e356019351dbf46bbadc7e6ab6565e,
+        type: 3}
+      propertyPath: skillManager
+      value: 
+      objectReference: {fileID: 863846165}
     - target: {fileID: 4200049116523830346, guid: 90e356019351dbf46bbadc7e6ab6565e,
         type: 3}
       propertyPath: m_Name

@@ -30,13 +30,16 @@
             }
         }
 
-        public void TriggerSkillPickup(int skillID)
+        public bool TriggerSkillPickup(int skillID)
         {
             if (secondarySkill.IsSkillAssigned == false)
             {
                 secondarySkillId.Value = skillID;
                 SetSkill(skillID);
+                return true;
             }
+
+            return false;
         }
         
         public void SetSkill(int skillID)

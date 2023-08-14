@@ -248,9 +248,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  skillManager: {fileID: 0}
   spawnIndicator: {fileID: 7858470084902053643}
   spawn: {fileID: 1269194715430075698}
-  cooldownTime: 3.5
+  cooldownTime: 6
 --- !u!114 &4657214137964910530
 MonoBehaviour:
   m_ObjectHideFlags: 0
