@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Elympics;
 
 public class AreaSkill : ASkill
 {
@@ -21,12 +22,14 @@ public class AreaSkill : ASkill
     protected override void ProcessSkillAction()
     {
         var area = CreateArea();
-        area.transform.position = aimPosition;
+        area.transform.position = new Vector3(aimPosition.x, area.transform.position.y, aimPosition.z);
     }
 
     private GameObject CreateArea()
     {
-        return ElympicsInstantiate(prefab.gameObject.name, this.PredictableFor);
+        var area = ElympicsInstantiate(prefab.gameObject.name, this.PredictableFor);
+        area.GetComponent<SlowEffectArea>().SetOwner(transform.root.gameObject.GetComponent<ElympicsBehaviour>());
+        return area;
     }
 
 }

@@ -95,7 +95,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 10, z: 1}
+  m_Size: {x: 1, y: 1.63, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &240361316672579875
 GameObject:
@@ -192,7 +192,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 10, z: 1}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &551292778920785336
 GameObject:
@@ -633,7 +633,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 10, z: 1}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8711056849692484457
 GameObject:
@@ -730,7 +730,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 10, z: 1}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &822436891601512763
 PrefabInstance:
@@ -1161,7 +1161,7 @@ PrefabInstance:
     - target: {fileID: 8361157285573323961, guid: ea3db4331623e8b4891e9728ecf7c17b,
         type: 3}
       propertyPath: networkId
-      value: 253
+      value: 276
       objectReference: {fileID: 0}
     - target: {fileID: 8361157285573323961, guid: ea3db4331623e8b4891e9728ecf7c17b,
         type: 3}
