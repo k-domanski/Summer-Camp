@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb727f55c547c54998737848bdc6c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillID: 1
   fireRate: 60
   indicator: {fileID: 3096725411525256286}
   range: 10

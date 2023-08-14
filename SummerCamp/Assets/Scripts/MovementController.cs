@@ -25,7 +25,7 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        playerData = GetComponent<PlayerData>();
+        playerData = GetComponentInChildren<PlayerData>();
         baseMovementSpeed = movementSpeed;
         if (Elympics.IsClient)
         {

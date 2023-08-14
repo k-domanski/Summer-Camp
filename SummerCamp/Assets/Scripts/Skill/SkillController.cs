@@ -7,10 +7,17 @@ using Elympics;
 public class SkillController : ElympicsMonoBehaviour
 {
     [SerializeField] private ASkill currentSkill;
-    //[SerializeField] private List<ASkill> availableSkills = new List<ASkill>();
 
+    public bool IsSkillAssigned => currentSkill != null;
+    public int SkillID => currentSkill.SkillID;
+    
     public void ProcessInput(bool isFire, bool isActive, Vector3 worldPos)
     {
+        if (IsSkillAssigned == false)
+        {
+            return;
+        }
+        
         currentSkill.Indicator.ShowIndicator(isActive);
 
         if(isActive)
@@ -22,5 +29,10 @@ public class SkillController : ElympicsMonoBehaviour
                 currentSkill.PerformPrimaryAction();
             }
         }
+    }
+
+    public void Set(ASkill skill)
+    {
+        currentSkill = skill;
     }
 }

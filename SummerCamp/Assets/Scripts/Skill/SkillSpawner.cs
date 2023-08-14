@@ -14,6 +14,7 @@ public class SkillSpawner : ElympicsMonoBehaviour, IUpdatable
     [SerializeField]
     private float cooldownTime;
 
+    public int SkillID { get; private set; }
     public ElympicsFloat TimeToSpawn { get; private set; } = new ElympicsFloat();
 
     private void Start()
