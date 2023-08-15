@@ -8,7 +8,7 @@ public class Rotate : MonoBehaviour
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private Vector3 rotationAxis;
 
-    private void Update()
+    private void FixedUpdate()
     {
         transform.Rotate(rotationAxis, Time.deltaTime * speed);
 
