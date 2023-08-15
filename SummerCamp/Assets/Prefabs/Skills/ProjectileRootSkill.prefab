@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4945284577689898896}
   - component: {fileID: 4945284577689898095}
   m_Layer: 0
-  m_Name: ProjectileSkill
+  m_Name: ProjectileRootSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceNetworkId: 0
-  networkId: 221
+  networkId: 300
   predictableFor:
     playerIndex: -2
   isUpdatableForNonOwners: 0
@@ -78,8 +78,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillID: 1
   fireRate: 60
+  skillCharges: 2
   indicator: {fileID: 3096725411525256286}
   range: 10
+  movementSpeedDebuff: 0
   spawnPoint: {fileID: 4554184331384664488}
   projectilePrefab: {fileID: 700805329768492444, guid: 1044dd358754fdd4caa3854fedc7a9df,
     type: 3}

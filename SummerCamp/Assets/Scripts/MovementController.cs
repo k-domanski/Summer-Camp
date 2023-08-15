@@ -20,6 +20,7 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
     private ElympicsFloat currentEffectDuration = new ElympicsFloat();
     [SerializeField] private float effectDuration = 3.0f;
     private float baseMovementSpeed = 0.0f;
+    private float slowValue = 0.0f;
     ////////////////////////////////////////
     
     void Awake()
@@ -35,7 +36,7 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
     public void ElympicsUpdate()
     {
         //DIRTY WAY TO IMPLEMENT SKILL EFFECT
-        movementSpeed = isSlowed.Value ? 5.0f : baseMovementSpeed; 
+        movementSpeed = isSlowed.Value ? slowValue : baseMovementSpeed; 
         if(isSlowed.Value)
         {
             currentEffectDuration.Value += Elympics.TickDuration;
@@ -45,6 +46,7 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
         {
             isSlowed.Value = false;
             currentEffectDuration.Value = 0.0f;
+            slowValue = 0.0f;
         }
         ////////////////////////////////////////
 
@@ -59,11 +61,12 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
     }
 
     //DIRTY WAY TO IMPLEMENT SKILL EFFECT
-    public void ApplySlow()
+    public void ApplySlow(float amount)
     {
         if (isSlowed.Value)
             return;
         isSlowed.Value = true;
+        slowValue = amount;
         currentEffectDuration.Value = 0.0f;
     }
     ////////////////////////////////////////

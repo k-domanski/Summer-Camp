@@ -6,6 +6,7 @@ using Elympics;
 public class ProjectileSkill : ASkill
 {
     [SerializeField] private float range;
+    [SerializeField] private float movementSpeedDebuff;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Projectile projectilePrefab;
 
@@ -34,7 +35,9 @@ public class ProjectileSkill : ASkill
         projectile.transform.position = spawnPoint.position;
         projectile.transform.rotation = spawnPoint.transform.rotation;
 
-        projectile.GetComponent<Projectile>().Launch(direction);
+        var proj = projectile.GetComponent<Projectile>();
+        proj.SetSlowAmount(movementSpeedDebuff);
+        proj.Launch(direction);
     }
 
     private GameObject CreateProjectile()

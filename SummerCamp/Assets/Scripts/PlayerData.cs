@@ -20,7 +20,7 @@ public class PlayerData : ElympicsMonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Elympics.IsServer)
+        if (this.IsPredictableForMe)
         {
             var skillSpawner = other.GetComponentInParent<SkillSpawner>();
             if (skillSpawner != null && skillSpawner.AvailableForPickUp)

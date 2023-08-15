@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8607507073174853386}
   - component: {fileID: 3734939893278922910}
   m_Layer: 0
-  m_Name: AreaSkill
+  m_Name: SlowAreaSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,10 +75,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc66da62117215e419518b56efee14e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillID: 0
   fireRate: 60
+  skillCharges: 2
   indicator: {fileID: 2090547844535781657}
-  prefab: {fileID: 700805329768492444, guid: d2beccb6cca2a8a429615e76808de2d1, type: 3}
+  prefab: {fileID: 8846746452339530621, guid: 618022fc825cdb7428fd4c0a0f756955, type: 3}
   radius: 10
+  slowAmount: 5
 --- !u!1001 &1801199819387827751
 PrefabInstance:
   m_ObjectHideFlags: 0

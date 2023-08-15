@@ -7,6 +7,7 @@ public class AreaSkill : ASkill
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private float radius = 15.0f;
+    [SerializeField] private float slowAmount = 5.0f;
     
     private Vector3 aimPosition;
 
@@ -22,6 +23,7 @@ public class AreaSkill : ASkill
     protected override void ProcessSkillAction()
     {
         var area = CreateArea();
+        area.GetComponent<SlowEffectArea>().SetSlowAmount(slowAmount);
         area.transform.position = new Vector3(aimPosition.x, area.transform.position.y, aimPosition.z);
     }
 

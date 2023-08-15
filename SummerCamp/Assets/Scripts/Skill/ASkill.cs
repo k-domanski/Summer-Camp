@@ -7,21 +7,25 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
 {
     [SerializeField] private int skillID;
     [SerializeField] protected float fireRate = 60.0f;
+    [SerializeField] protected int skillCharges = 1;
     [SerializeField] protected SkillIndicator indicator;
 
     public float TimeBetweenShots => timeBetweenShots;
     public GameObject Owner => transform.root.gameObject;
     public SkillIndicator Indicator => indicator;
     public int SkillID => skillID;
+    public bool HasCharges => skillCurrentCharges.Value > 0;
 
     protected ElympicsFloat currentTimeBetweenShots = new ElympicsFloat(0.0f);
     protected float timeBetweenShots = 0.0f;
     protected bool isReady => currentTimeBetweenShots.Value >= timeBetweenShots;
+    protected ElympicsInt skillCurrentCharges = new ElympicsInt();
 
     #region IInitializable
     public void Initialize()
     {
         CalculateTimeBetweenShots();
+        ResetCharges();
     }
     #endregion
 
@@ -40,6 +44,11 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
         ExecutePrimaryActionIfReady();
     }
 
+    public void ResetCharges()
+    {
+        skillCurrentCharges.Value = skillCharges;
+    }
+
     public abstract void UpdateAimPosition(Vector3 worldPosition);
 
     protected abstract void ProcessSkillAction();
@@ -50,6 +59,7 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
         {
             ProcessSkillAction();
             currentTimeBetweenShots.Value = 0.0f;
+            skillCurrentCharges.Value--;
         }
     }
 

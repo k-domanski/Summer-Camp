@@ -9,7 +9,7 @@ public class Projectile : ElympicsMonoBehaviour, IInitializable, IUpdatable
 
     private ElympicsBool isReadyToDestroy = new ElympicsBool();
     private ElympicsGameObject owner = new ElympicsGameObject();
-
+    private float slowAmount;
     private Rigidbody rb;
 
     public void ElympicsUpdate()
@@ -33,6 +33,11 @@ public class Projectile : ElympicsMonoBehaviour, IInitializable, IUpdatable
         this.owner.Value = owner;
     }
 
+    public void SetSlowAmount(float amount)
+    {
+        slowAmount = amount;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (owner.Value == null)
@@ -44,7 +49,7 @@ public class Projectile : ElympicsMonoBehaviour, IInitializable, IUpdatable
         //DIRTY WAY TO IMPLEMENT SKILL EFFECT
         if (other.TryGetComponent<MovementController>(out var movementController))
         {
-            movementController.ApplySlow();
+            movementController.ApplySlow(slowAmount);
         }
         ////////////////////////////////////////
         

@@ -22,11 +22,37 @@ PrefabInstance:
       propertyPath: playerID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1692116542767345894, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 4560750565106269551, guid: ba4f1131bbfbb0d45a5e5c030b495634,
+        type: 3}
+    - target: {fileID: 1692116542767346457, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: networkId
+      value: 309
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692116542767346457, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: predictableFor.playerIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1779815224686265797, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2123ee50977ac5a4cb8aadae94afda98, type: 2}
+    - target: {fileID: 2559607136374287171, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: networkId
+      value: 310
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559607136374287171, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: predictableFor.playerIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2734674414506915638, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: playerID
@@ -116,6 +142,11 @@ PrefabInstance:
         type: 3}
       propertyPath: predictableFor.playerIndex
       value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868182367472780003, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: networkId
+      value: 311
       objectReference: {fileID: 0}
     - target: {fileID: 6260942684111525714, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}

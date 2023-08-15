@@ -187,6 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8788895639123342194}
   - component: {fileID: 431285091564027710}
+  - component: {fileID: 8626141795727433971}
   m_Layer: 0
   m_Name: Indicator
   m_TagString: Untagged
@@ -222,3 +223,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c771df1a087954cb83e4e61278db0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8626141795727433971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7396445346987580114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334c2a3facb248ac8c1a599797c52dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceNetworkId: 0
+  networkId: 315
+  predictableFor:
+    playerIndex: -2
+  isUpdatableForNonOwners: 0
+  visibleFor:
+    playerIndex: -3
+  stateFrequencyStages:
+  - stageDurationInMiliseconds: 500
+    frequencyInMiliseconds: 30
+    maxStageDurationInMiliseconds: 5000
+  - stageDurationInMiliseconds: 1000
+    frequencyInMiliseconds: 200
+    maxStageDurationInMiliseconds: 5000
+  - stageDurationInMiliseconds: 1000
+    frequencyInMiliseconds: 1000
+    maxStageDurationInMiliseconds: 5000
