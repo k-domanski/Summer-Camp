@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2211444433744935580}
   - component: {fileID: 1201178636390769681}
   - component: {fileID: 1653034387595443996}
-  - component: {fileID: 446122766732046735}
+  - component: {fileID: 893941917567455370}
   - component: {fileID: 6966182879167590664}
   - component: {fileID: 2301188929558986523}
+  - component: {fileID: 5662439345067842218}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -29,9 +30,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269194715430075698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.659, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 267982091880704622}
   m_RootOrder: 1
@@ -43,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269194715430075698}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1653034387595443996
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -86,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &446122766732046735
-CapsuleCollider:
+--- !u!65 &893941917567455370
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,10 +97,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.69
-  m_Height: 3.1
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.55, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6966182879167590664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceNetworkId: 0
-  networkId: 258
+  networkId: 336
   predictableFor:
     playerIndex: -2
   isUpdatableForNonOwners: 0
@@ -141,6 +141,20 @@ MonoBehaviour:
   - stageDurationInMiliseconds: 1000
     frequencyInMiliseconds: 1000
     maxStageDurationInMiliseconds: 5000
+--- !u!114 &5662439345067842218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269194715430075698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe067732e9ad5c34ea864b48e0683935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+  rotationAxis: {x: 1, y: 1, z: 0}
 --- !u!1 &3202610636623994589
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceNetworkId: 0
-  networkId: 257
+  networkId: 356
   predictableFor:
     playerIndex: -2
   isUpdatableForNonOwners: 0
