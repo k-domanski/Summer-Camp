@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillID: 1
-  fireRate: 60
+  fireRate: 20
   skillCharges: 2
   indicator: {fileID: 3096725411525256286}
   range: 10

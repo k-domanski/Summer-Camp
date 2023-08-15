@@ -1776,6 +1776,11 @@ PrefabInstance:
       propertyPath: skillManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1269194715430075698, guid: 90e356019351dbf46bbadc7e6ab6565e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4200049116523830346, guid: 90e356019351dbf46bbadc7e6ab6565e,
         type: 3}
       propertyPath: m_Name

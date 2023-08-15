@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
+using System;
 
-//Temporary
 public class SkillController : ElympicsMonoBehaviour
 {
     [SerializeField] private ASkill currentSkill;
 
     public bool IsSkillAssigned => currentSkill != null;
     public int SkillID => currentSkill.SkillID;
+
+    public event Action<bool, ASkill> onSkillActive;
 
     public void ProcessInput(bool isFire, bool isActive, Vector3 worldPos)
     {
@@ -38,6 +40,7 @@ public class SkillController : ElympicsMonoBehaviour
         {
             currentSkill.Indicator.ShowIndicator(false);
             currentSkill = null;
+            onSkillActive?.Invoke(IsSkillAssigned, null);
         }
 
     }
@@ -46,5 +49,6 @@ public class SkillController : ElympicsMonoBehaviour
     {
         currentSkill = skill;
         currentSkill.ResetCharges();
+        onSkillActive?.Invoke(IsSkillAssigned, currentSkill);
     }
 }

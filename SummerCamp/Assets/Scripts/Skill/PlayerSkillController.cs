@@ -34,8 +34,6 @@
         {
             if (secondarySkill.IsSkillAssigned == false)
             {
-                Debug.Log($"TRIGGER SKILL PICKUP ID: {skillID}");
-
                 secondarySkillId.Value = skillID;
                 SetSkill(skillID);
                 return true;
