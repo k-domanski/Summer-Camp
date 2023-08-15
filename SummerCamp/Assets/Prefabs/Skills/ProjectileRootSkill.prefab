@@ -80,6 +80,7 @@ MonoBehaviour:
   fireRate: 20
   skillCharges: 2
   indicator: {fileID: 3096725411525256286}
+  effect: {fileID: 11400000, guid: 53f6ab99137b5804197a0412e4bff788, type: 2}
   range: 10
   movementSpeedDebuff: 0
   spawnPoint: {fileID: 4554184331384664488}

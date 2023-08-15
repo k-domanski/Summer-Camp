@@ -36,7 +36,7 @@ public class ProjectileSkill : ASkill
         projectile.transform.rotation = spawnPoint.transform.rotation;
 
         var proj = projectile.GetComponent<Projectile>();
-        proj.SetSlowAmount(movementSpeedDebuff);
+        proj.SetEffect(effect);
         proj.Launch(direction);
     }
 

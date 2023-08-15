@@ -9,6 +9,7 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
     [SerializeField] protected float fireRate = 60.0f;
     [SerializeField] protected int skillCharges = 1;
     [SerializeField] protected SkillIndicator indicator;
+    [SerializeField] protected SkillEffect effect;
 
     public ElympicsFloat TimeRatio { get; private set; } = new ElympicsFloat();
     public float TimeBetweenShots => timeBetweenShots;

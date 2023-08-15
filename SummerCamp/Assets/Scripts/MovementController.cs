@@ -2,7 +2,7 @@ using UnityEngine;
 using Elympics;
 
 [RequireComponent(typeof(Rigidbody))]
-public class MovementController : ElympicsMonoBehaviour, IUpdatable
+public class MovementController : ElympicsMonoBehaviour
 {
     [SerializeField] private float movementSpeed;
     [SerializeField] private float acceleration;
@@ -10,46 +10,19 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
     private Animator characterAnimation;
     
     private Rigidbody rb = null;
-    private PlayerData playerData;
-    
+    private float baseMovementSpeed = 0.0f;
+
     protected ElympicsVector3 lookAt = new ElympicsVector3();
     protected ElympicsVector3 movement = new ElympicsVector3();
-
-    //DIRTY WAY TO IMPLEMENT SKILL EFFECT
-    private ElympicsBool isSlowed = new ElympicsBool();
-    private ElympicsFloat currentEffectDuration = new ElympicsFloat();
-    [SerializeField] private float effectDuration = 3.0f;
-    private float baseMovementSpeed = 0.0f;
-    private float slowValue = 0.0f;
-    ////////////////////////////////////////
     
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        playerData = GetComponentInChildren<PlayerData>();
         baseMovementSpeed = movementSpeed;
         if (Elympics.IsClient)
         {
             lookAt.ValueChanged += OnLookAtChanged;
         }
-    }
-    public void ElympicsUpdate()
-    {
-        //DIRTY WAY TO IMPLEMENT SKILL EFFECT
-        movementSpeed = isSlowed.Value ? slowValue : baseMovementSpeed; 
-        if(isSlowed.Value)
-        {
-            currentEffectDuration.Value += Elympics.TickDuration;
-        }
-
-        if(currentEffectDuration.Value > effectDuration)
-        {
-            isSlowed.Value = false;
-            currentEffectDuration.Value = 0.0f;
-            slowValue = 0.0f;
-        }
-        ////////////////////////////////////////
-
     }
 
     private void OnDestroy()
@@ -60,16 +33,15 @@ public class MovementController : ElympicsMonoBehaviour, IUpdatable
         }
     }
 
-    //DIRTY WAY TO IMPLEMENT SKILL EFFECT
     public void ApplySlow(float amount)
     {
-        if (isSlowed.Value)
-            return;
-        isSlowed.Value = true;
-        slowValue = amount;
-        currentEffectDuration.Value = 0.0f;
+        movementSpeed = amount;
     }
-    ////////////////////////////////////////
+
+    public void ResetSpeed()
+    {
+        movementSpeed = baseMovementSpeed;
+    }
 
     private void OnLookAtChanged(Vector3 lastvalue, Vector3 newvalue)
     {

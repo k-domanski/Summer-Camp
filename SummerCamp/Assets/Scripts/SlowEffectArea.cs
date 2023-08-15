@@ -6,17 +6,16 @@ using Elympics;
 public class SlowEffectArea : MonoBehaviour
 {
     private ElympicsGameObject owner = new ElympicsGameObject();
-    private float slowAmount = 0.0f;
-
+    private SkillEffect effect;
 
     public void SetOwner(ElympicsBehaviour owner)
     {
         this.owner.Value = owner;
     }
 
-    public void SetSlowAmount(float amount)
+    public void SetEffect(SkillEffect effect)
     {
-        slowAmount = amount;
+        this.effect = effect;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,9 +26,9 @@ public class SlowEffectArea : MonoBehaviour
         if (other.transform.root.gameObject == owner.Value.gameObject)
             return;
 
-        if(other.TryGetComponent<MovementController>(out MovementController movementController))
+        if(other.TryGetComponent<EffectController>(out var effectController))
         {
-            movementController.ApplySlow(slowAmount);
-        }
+            effectController.ApplyEffect(effect);
+        }    
     }
 }

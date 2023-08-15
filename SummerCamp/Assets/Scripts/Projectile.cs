@@ -9,8 +9,8 @@ public class Projectile : ElympicsMonoBehaviour, IInitializable, IUpdatable
 
     private ElympicsBool isReadyToDestroy = new ElympicsBool();
     private ElympicsGameObject owner = new ElympicsGameObject();
-    private float slowAmount;
     private Rigidbody rb;
+    private SkillEffect effect;
 
     public void ElympicsUpdate()
     {
@@ -33,9 +33,9 @@ public class Projectile : ElympicsMonoBehaviour, IInitializable, IUpdatable
         this.owner.Value = owner;
     }
 
-    public void SetSlowAmount(float amount)
+    public void SetEffect(SkillEffect effect)
     {
-        slowAmount = amount;
+        this.effect = effect;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,12 +46,10 @@ public class Projectile : ElympicsMonoBehaviour, IInitializable, IUpdatable
         if (other.transform.root.gameObject == owner.Value.gameObject)
             return;
 
-        //DIRTY WAY TO IMPLEMENT SKILL EFFECT
-        if (other.TryGetComponent<MovementController>(out var movementController))
+        if(other.TryGetComponent<EffectController>(out var effectController))
         {
-            movementController.ApplySlow(slowAmount);
+            effectController.ApplyEffect(effect);
         }
-        ////////////////////////////////////////
         
         this.isReadyToDestroy.Value = true;
     }

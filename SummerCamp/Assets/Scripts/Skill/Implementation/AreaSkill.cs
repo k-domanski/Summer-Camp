@@ -23,7 +23,7 @@ public class AreaSkill : ASkill
     protected override void ProcessSkillAction()
     {
         var area = CreateArea();
-        area.GetComponent<SlowEffectArea>().SetSlowAmount(slowAmount);
+        area.GetComponent<SlowEffectArea>().SetEffect(effect);
         area.transform.position = new Vector3(aimPosition.x, area.transform.position.y, aimPosition.z);
     }
 

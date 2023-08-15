@@ -79,6 +79,7 @@ MonoBehaviour:
   fireRate: 60
   skillCharges: 2
   indicator: {fileID: 2090547844535781657}
+  effect: {fileID: 11400000, guid: c8325c5dc16d49b47bb01dd9415febe5, type: 2}
   prefab: {fileID: 8846746452339530621, guid: 618022fc825cdb7428fd4c0a0f756955, type: 3}
   radius: 10
   slowAmount: 5
