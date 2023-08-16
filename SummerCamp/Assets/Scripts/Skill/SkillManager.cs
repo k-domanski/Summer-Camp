@@ -17,7 +17,6 @@ public class SkillManager : MonoBehaviour
     public ASkill GetSkill(int skillID)
     {
         return allskills.First(entry => entry.SkillID == skillID);
-        //return allskills.Where(entry => entry.SkillID == skillID).FirstOrDefault();
     }
 
     public int GetRandomSkillID()
