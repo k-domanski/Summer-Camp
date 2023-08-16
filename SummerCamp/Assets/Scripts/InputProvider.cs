@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InputProvider : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class InputProvider : MonoBehaviour
         mainControls.Player.Attack.started += OnAttack;
         mainControls.Player.Attack.canceled += OnAttack;
         mainControls.Player.MousePos.performed += OnMouseMove;
+        mainControls.Player.ReturnToMenu.started += OnReturnToMenu;
     }
 
     private void UnsubscribeFromPlayerActions()
@@ -57,6 +59,7 @@ public class InputProvider : MonoBehaviour
         mainControls.Player.Attack.started -= OnAttack;
         mainControls.Player.Attack.canceled -= OnAttack;
         mainControls.Player.MousePos.performed -= OnMouseMove;
+        mainControls.Player.ReturnToMenu.started -= OnReturnToMenu;
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -85,5 +88,10 @@ public class InputProvider : MonoBehaviour
     private void OnMouseMove(InputAction.CallbackContext context)
     {
         MousePos = context.ReadValue<Vector2>();
+    }
+
+    private void OnReturnToMenu(InputAction.CallbackContext context)
+    {
+        SceneManager.LoadScene(0);
     }
 }

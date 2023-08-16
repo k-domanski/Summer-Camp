@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class ScoreBoardUI : MonoBehaviour
 {
     [SerializeField] private List<PlayerScorePanelUI> playerScorePanels;
     [SerializeField] private PlayerScoresManager scoresManager;
     [SerializeField] private PlayersProvider playersProvider;
+
+    private int mainMenuSceneIndex = 0;
 
     private void Awake()
     {
@@ -27,6 +30,11 @@ public class ScoreBoardUI : MonoBehaviour
     private void OnDestroy()
     {
         scoresManager.onPlayerFinished -= UpdateScore;
+    }
+
+    public void OnBackToMenuClicked()
+    {
+        SceneManager.LoadScene(mainMenuSceneIndex);
     }
 
     private void Setup()

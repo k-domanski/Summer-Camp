@@ -82,6 +82,15 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ReturnToMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""896fac24-0c0f-40ae-9bbd-0402da4f4d00"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=2)"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -335,6 +344,17 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0bd50ad9-fad3-48fa-9015-bf1c468be4ba"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReturnToMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -928,6 +948,7 @@ namespace UnityEngine.InputSystem
             m_Player_Skill = m_Player.FindAction("Skill", throwIfNotFound: true);
             m_Player_MousePos = m_Player.FindAction("MousePos", throwIfNotFound: true);
             m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+            m_Player_ReturnToMenu = m_Player.FindAction("ReturnToMenu", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1005,6 +1026,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_Skill;
         private readonly InputAction m_Player_MousePos;
         private readonly InputAction m_Player_Attack;
+        private readonly InputAction m_Player_ReturnToMenu;
         public struct PlayerActions
         {
             private @MainControls m_Wrapper;
@@ -1015,6 +1037,7 @@ namespace UnityEngine.InputSystem
             public InputAction @Skill => m_Wrapper.m_Player_Skill;
             public InputAction @MousePos => m_Wrapper.m_Player_MousePos;
             public InputAction @Attack => m_Wrapper.m_Player_Attack;
+            public InputAction @ReturnToMenu => m_Wrapper.m_Player_ReturnToMenu;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1042,6 +1065,9 @@ namespace UnityEngine.InputSystem
                     @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                     @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                     @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                    @ReturnToMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReturnToMenu;
+                    @ReturnToMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReturnToMenu;
+                    @ReturnToMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReturnToMenu;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1064,6 +1090,9 @@ namespace UnityEngine.InputSystem
                     @Attack.started += instance.OnAttack;
                     @Attack.performed += instance.OnAttack;
                     @Attack.canceled += instance.OnAttack;
+                    @ReturnToMenu.started += instance.OnReturnToMenu;
+                    @ReturnToMenu.performed += instance.OnReturnToMenu;
+                    @ReturnToMenu.canceled += instance.OnReturnToMenu;
                 }
             }
         }
@@ -1226,6 +1255,7 @@ namespace UnityEngine.InputSystem
             void OnSkill(InputAction.CallbackContext context);
             void OnMousePos(InputAction.CallbackContext context);
             void OnAttack(InputAction.CallbackContext context);
+            void OnReturnToMenu(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
