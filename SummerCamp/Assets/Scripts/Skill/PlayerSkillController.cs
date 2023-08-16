@@ -7,8 +7,8 @@
     {
         
         [SerializeField] private SkillManager skillManager;
-        [SerializeField]
-        private SkillController primarySkill;
+        //[SerializeField]
+        //private SkillController primarySkill;
         [SerializeField]
         private SkillController secondarySkill;
         
@@ -54,7 +54,7 @@
 
         public void UsePrimary(bool isFire, bool isActive, Vector3 worldPos)
         {
-            primarySkill.ProcessInput(isFire, isActive, worldPos);
+            //primarySkill.ProcessInput(isFire, isActive, worldPos);
         }
 
         public void UseSecondary(bool isFire, bool isActive, Vector3 worldPos)

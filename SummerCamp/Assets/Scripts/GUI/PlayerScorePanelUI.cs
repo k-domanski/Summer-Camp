@@ -7,12 +7,10 @@ public class PlayerScorePanelUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI playerNameText;
     [SerializeField] private TextMeshProUGUI playerTimeText;
+    [SerializeField] private CanvasGroup canvasGroup;
 
-    private CanvasGroup canvasGroup;
-
-    private void Awake()
+    private void Start()
     {
-        canvasGroup = GetComponent<CanvasGroup>();
         SetEmptyValue();
     }
 

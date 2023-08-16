@@ -20,12 +20,12 @@ public class SkillCooldownUI : MonoBehaviour
     {
         canvasGroup.alpha = 0.0f;
 
-        if(playersProvider == null)
-        {
-            playersProvider = FindObjectOfType<PlayersProvider>();
-        }
+        //if(playersProvider == null)
+        //{
+        //    playersProvider = FindObjectOfType<PlayersProvider>();
+        //}
 
-        playerData = gameObject.transform.root.GetComponent<PlayerData>();
+        //playerData = gameObject.transform.root.GetComponent<PlayerData>();
 
         if(playersProvider.ClientPlayer.PlayerID == playerData.PlayerID)
             skillController.onSkillActive += ShowIndicator;

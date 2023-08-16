@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameName: SummerGame
   gameId: 033c129e-3706-4af1-b8e2-336583238c27
-  gameVersion: 14
+  gameVersion: 16
   players: 2
   gameplayScene: Assets/Scenes/MainScene.unity
   gameplaySceneAsset: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05,
