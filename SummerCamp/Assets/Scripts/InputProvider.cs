@@ -19,21 +19,18 @@ public class InputProvider : MonoBehaviour
         mainControls = new MainControls();
         mainControls.Player.Enable();
         SubscribeToPlayerActions();
-        mainControls.Player.ReturnToMenu.performed += OnReturnToMenu;
     }
-
+    
     private void OnDestroy()
     {
         mainControls.Player.Disable();
         UnsubscribeFromPlayerActions();
-        mainControls.Player.ReturnToMenu.started -= OnReturnToMenu;
     }
 
     public void DisableInput()
     {
-        //mainControls.Player.Disable();
-        UnsubscribeFromPlayerActions();
-        Movement = Vector2.zero;
+        mainControls.Player.Disable();
+
         // Switch to UI Action Map ?
     }
 
@@ -48,6 +45,7 @@ public class InputProvider : MonoBehaviour
         mainControls.Player.Attack.started += OnAttack;
         mainControls.Player.Attack.canceled += OnAttack;
         mainControls.Player.MousePos.performed += OnMouseMove;
+        mainControls.Player.ReturnToMenu.started += OnReturnToMenu;
     }
 
     private void UnsubscribeFromPlayerActions()
@@ -61,6 +59,7 @@ public class InputProvider : MonoBehaviour
         mainControls.Player.Attack.started -= OnAttack;
         mainControls.Player.Attack.canceled -= OnAttack;
         mainControls.Player.MousePos.performed -= OnMouseMove;
+        mainControls.Player.ReturnToMenu.started -= OnReturnToMenu;
     }
 
     private void OnMove(InputAction.CallbackContext context)
