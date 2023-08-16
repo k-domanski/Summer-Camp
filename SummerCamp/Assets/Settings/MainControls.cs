@@ -351,7 +351,7 @@ namespace UnityEngine.InputSystem
                     ""name"": """",
                     ""id"": ""0bd50ad9-fad3-48fa-9015-bf1c468be4ba"",
                     ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold(duration=2)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ReturnToMenu"",
