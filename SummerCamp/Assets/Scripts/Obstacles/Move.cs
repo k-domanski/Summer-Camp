@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Elympics;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Move : MonoBehaviour
+public class Move : ElympicsMonoBehaviour, IUpdatable
 {
     [SerializeField]
     private Transform origin;
@@ -23,9 +24,9 @@ public class Move : MonoBehaviour
         MoveToDestination();
     }
 
-    private void FixedUpdate()
+    public void ElympicsUpdate()
     {
-        this.transform.position += currentDirection * (Time.fixedDeltaTime * moveSpeed);
+        this.transform.position += currentDirection * (Elympics.TickDuration * moveSpeed);
         CheckReached();
     }
 

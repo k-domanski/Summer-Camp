@@ -19,6 +19,7 @@ public class GameManager : ElympicsMonoBehaviour, IUpdatable
     {
         serverHandler.AllPlayersConnected += StartCountdown;
         IsRunning.ValueChanged += OnIsRunningChanged;
+        IsStarting.ValueChanged += OnIsStartingChanged;
     }
 
     private void OnDestroy()
@@ -38,6 +39,11 @@ public class GameManager : ElympicsMonoBehaviour, IUpdatable
         }
     }
 
+    private void OnIsStartingChanged(bool lastvalue, bool newvalue)
+    {
+        
+    }
+
     public void StartCountdown()
     {
         IsStarting.Value = true;
@@ -46,20 +52,17 @@ public class GameManager : ElympicsMonoBehaviour, IUpdatable
 
     public void ElympicsUpdate()
     {
-        if(Elympics.IsServer)
+        if (IsStarting.Value)
         {
-            if (IsStarting.Value)
+            CurrentTime.Value -= Elympics.TickDuration;
+            if (CurrentTime.Value <= 0)
             {
-                CurrentTime.Value -= Elympics.TickDuration;
-                if (CurrentTime.Value <= 0)
-                {
-                    StartRace();
-                }
+                StartRace();
             }
-            else if (IsRunning.Value)
-            {
-                CurrentTime.Value += Elympics.TickDuration;
-            }
+        }
+        else if (IsRunning.Value)
+        {
+            CurrentTime.Value += Elympics.TickDuration;
         }
     }
         
