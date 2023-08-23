@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2123ee50977ac5a4cb8aadae94afda98, type: 2}
+    - target: {fileID: 822328602209666842, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: networkId
+      value: 443
+      objectReference: {fileID: 0}
     - target: {fileID: 1384884019821106665, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: networkId
@@ -31,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 1692116542767346457, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: networkId
-      value: 309
+      value: 444
       objectReference: {fileID: 0}
     - target: {fileID: 1692116542767346457, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
@@ -43,10 +48,25 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2123ee50977ac5a4cb8aadae94afda98, type: 2}
+    - target: {fileID: 2546101214552843343, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546101214552843343, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546101214552843343, guid: cff24950430567a4b876bbdfbe67d33d,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 2559607136374287171, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: networkId
-      value: 310
+      value: 445
       objectReference: {fileID: 0}
     - target: {fileID: 2559607136374287171, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
@@ -146,7 +166,7 @@ PrefabInstance:
     - target: {fileID: 4868182367472780003, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: networkId
-      value: 311
+      value: 446
       objectReference: {fileID: 0}
     - target: {fileID: 6260942684111525714, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
