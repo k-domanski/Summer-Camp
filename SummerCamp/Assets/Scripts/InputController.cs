@@ -60,6 +60,7 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
     {
         this.inputProvider = GetComponent<InputProvider>();
         this.playerData = GetComponentInChildren<PlayerData>();
+        playerCamera = FindObjectOfType<Camera>();
     }
     #endregion
 
