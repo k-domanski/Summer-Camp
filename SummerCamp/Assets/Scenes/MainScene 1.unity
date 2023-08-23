@@ -469,7 +469,7 @@ MonoBehaviour:
   origin: {fileID: 236517775}
   destination: {fileID: 1522352763}
   reachMargin: 0.05
-  moveSpeed: 8
+  moveSpeed: 10
 --- !u!114 &236517777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2294,7 +2294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5680467775842337, guid: 00c550121c8d40442902db30b70af2ca, type: 3}
       propertyPath: m_LocalScale.z
-      value: 24
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 5680467775842337, guid: 00c550121c8d40442902db30b70af2ca, type: 3}
       propertyPath: m_LocalPosition.x
