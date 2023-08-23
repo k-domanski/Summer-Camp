@@ -13,6 +13,8 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
     private PlayerData playerData = null;
     private float raycastDistance;
 
+    private Vector3 hitPoint;
+
     private void Start()
     {
         raycastDistance = Vector3.Magnitude(this.transform.position - playerCamera.transform.position) + additionalRaycastDistance;
@@ -60,7 +62,7 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
     {
         this.inputProvider = GetComponent<InputProvider>();
         this.playerData = GetComponentInChildren<PlayerData>();
-        playerCamera = FindObjectOfType<Camera>();
+        playerCamera = Camera.main;
     }
     #endregion
 
@@ -100,8 +102,11 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
     private Vector3 CalculateScreenToWorld(Vector2 mousePosition)
     {
         Ray ray = playerCamera.ScreenPointToRay(new Vector3(mousePosition.x, mousePosition.y, 0));
-        Physics.Raycast(ray, out RaycastHit hit);
-        return hit.point;
+        if(Physics.Raycast(ray, out RaycastHit hit))
+        {
+            hitPoint = hit.point;
+        }
+        return hitPoint;
     }
 
     private void ProcessInput(Vector3 movement, Vector3 rotation)
