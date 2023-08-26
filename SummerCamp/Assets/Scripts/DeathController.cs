@@ -4,7 +4,7 @@ using UnityEngine;
 using Elympics;
 using System;
 
-public class DeathController : ElympicsMonoBehaviour, IUpdatable
+public class DeathController : ElympicsMonoBehaviour, IUpdatable, IInitializable
 {
     [SerializeField] private float deathTime = 0.0f;
 
@@ -12,6 +12,8 @@ public class DeathController : ElympicsMonoBehaviour, IUpdatable
     public ElympicsFloat CurrentDeathTime { get; private set; } = new ElympicsFloat(0.0f);
 
     public event Action<int> onPlayerDeath = null;
+
+    private PlayerData playerData;
 
     public void ElympicsUpdate()
     {
@@ -35,6 +37,12 @@ public class DeathController : ElympicsMonoBehaviour, IUpdatable
 
     private void RespawnPlayer()
     {
-        //TODO
+        Spawner.Instance.Spawn<PlayerData>(playerData, 5.0f);
+        IsDead.Value = false;
+    }
+
+    public void Initialize()
+    {
+        playerData = GetComponent<PlayerData>();
     }
 }

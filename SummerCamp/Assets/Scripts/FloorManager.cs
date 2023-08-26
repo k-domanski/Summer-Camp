@@ -2,10 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloorSetup : MonoBehaviour
+public class FloorManager : MonoBehaviour
 {
     [SerializeField] private Grid grid;
     [SerializeField] private Vector2Int maxSize;
+
+    public List<Transform> FloorTiles { get; private set; } = new List<Transform>();
+
+    private void Awake()
+    {
+        foreach(var collider in gameObject.GetComponentsInChildren<BoxCollider>())
+        {
+            FloorTiles.Add(collider.transform);
+        }
+    }
 
     [ContextMenu("Set Tiles Position")]
     private void SetTiles()
