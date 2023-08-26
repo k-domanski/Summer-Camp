@@ -11,6 +11,7 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
 
     private InputProvider inputProvider = null;
     private PlayerData playerData = null;
+    private HUDController HUDController = null;
     private float raycastDistance;
 
     private Vector3 hitPoint;
@@ -33,6 +34,8 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
 
         float worldPosX = 0.0f;
         float worldPosZ = 0.0f;
+
+        bool showScoreboard = false;
        
         if (ElympicsBehaviour.TryGetInput(ElympicsPlayer.FromIndex(playerData.PlayerID), out var inputReader))
         {
@@ -48,10 +51,14 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
             inputReader.Read(out worldPosX);
             inputReader.Read(out worldPosZ);
 
+            inputReader.Read(out showScoreboard);
+
             ProcessInput(new Vector3(horizontalMovement,0, verticalMovement),new Vector3(worldLookPosX,0,worldLookPosZ));
 
             playerData.UsePrimary(isFire, isSkillActive, new Vector3(worldPosX, 0, worldPosZ));
             playerData.UseSecondary(isFire, isSecondaryActive, new Vector3(worldPosX, 0, worldPosZ));
+
+            HUDController.ProcessHUDActions(showScoreboard);
 
         }
     }
@@ -63,6 +70,7 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
         this.inputProvider = GetComponent<InputProvider>();
         this.playerData = GetComponentInChildren<PlayerData>();
         playerCamera = Camera.main;
+        this.HUDController = GetComponent<HUDController>();
     }
     #endregion
 
@@ -97,6 +105,8 @@ public class InputController : ElympicsMonoBehaviour, IInputHandler, IInitializa
         Vector3 worldPosition = CalculateScreenToWorld(inputProvider.MousePos);
         inputWriter.Write(worldPosition.x);
         inputWriter.Write(worldPosition.z);
+
+        inputWriter.Write(inputProvider.ShowScoreboard);
     }
 
     private Vector3 CalculateScreenToWorld(Vector2 mousePosition)

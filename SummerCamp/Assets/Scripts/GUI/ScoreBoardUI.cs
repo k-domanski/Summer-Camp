@@ -6,7 +6,7 @@ using Elympics;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public class ScoreBoardUI : MonoBehaviour
+public class ScoreboardUI : MonoBehaviour
 {
     [SerializeField] private List<PlayerScorePanelUI> playerScorePanels;
     [SerializeField] private PlayerScoresManager scoresManager;
