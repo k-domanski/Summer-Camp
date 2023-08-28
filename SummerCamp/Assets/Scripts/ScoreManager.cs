@@ -12,7 +12,7 @@ public class ScoreManager : ElympicsMonoBehaviour, IInitializable
     [Header("References")]
     [SerializeField] PlayersProvider playersProvider;
 
-    public ElympicsInt WinnerID { get; private set; } = new ElympicsInt();
+    public ElympicsInt WinnerID { get; private set; } = new ElympicsInt(-1);
 
     public bool IsReady { get; private set; } = false;
     public event Action IsReadyChanged;
@@ -79,7 +79,11 @@ public class ScoreManager : ElympicsMonoBehaviour, IInitializable
 
         if(Elympics.IsServer && playerScores.Values[index].Value >= pointsToWin)
         {
+            Debug.Log($"Player ID: {index}, Points: {playerScores.Values[index].Value}, Points to win: {pointsToWin}");
             WinnerID.Value = index;
+            //Change Game State?
+            //Disable input, disable spawners, disable obstacles
+            //Or something connected to WinnerID value changed event
         }
     }
 }

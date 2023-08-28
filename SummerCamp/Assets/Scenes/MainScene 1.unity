@@ -364,12 +364,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 132495815}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &137418731 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2151253508174582568, guid: 3011f4377a137a04b8ca1c0c70904068,
-    type: 3}
-  m_PrefabInstance: {fileID: 2151253508043556035}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &222232586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2285,16 +2279,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 402098610}
     m_Modifications:
-    - target: {fileID: 2151253506693042057, guid: 3011f4377a137a04b8ca1c0c70904068,
-        type: 3}
-      propertyPath: m_VerticalScrollbar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2151253506693042057, guid: 3011f4377a137a04b8ca1c0c70904068,
-        type: 3}
-      propertyPath: m_HorizontalScrollbar
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2151253508090462404, guid: 3011f4377a137a04b8ca1c0c70904068,
         type: 3}
       propertyPath: scoreManager
@@ -2305,17 +2289,6 @@ PrefabInstance:
       propertyPath: playersProvider
       value: 
       objectReference: {fileID: 1816325128}
-    - target: {fileID: 2151253508090462404, guid: 3011f4377a137a04b8ca1c0c70904068,
-        type: 3}
-      propertyPath: playerPanelPrefab
-      value: 
-      objectReference: {fileID: 7703378771382534791, guid: 1ac009f16cecb514ba4f37af9a978a31,
-        type: 3}
-    - target: {fileID: 2151253508090462404, guid: 3011f4377a137a04b8ca1c0c70904068,
-        type: 3}
-      propertyPath: playerPanelContainer
-      value: 
-      objectReference: {fileID: 137418731}
     - target: {fileID: 2151253508090462405, guid: 3011f4377a137a04b8ca1c0c70904068,
         type: 3}
       propertyPath: m_Alpha
@@ -2926,6 +2899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerScoreManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048722074861780071, guid: af6e042568aea844b9696bc0a49fcc74,
+        type: 3}
+      propertyPath: pointsToWin
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8048722074861780071, guid: af6e042568aea844b9696bc0a49fcc74,
         type: 3}

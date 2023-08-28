@@ -12,12 +12,15 @@ public class Scoreboard : MonoBehaviour
     [SerializeField] private Transform playerPanelContainer;
     [SerializeField] private PlayersProvider playersProvider;
     [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private GameOverUI gameOverUI;
 
     private HUDController clientHUDController;
     private List<PlayerPanelUI> createdPlayerPanels = new List<PlayerPanelUI>();
 
     private void Awake()
     {
+        canvasGroup.alpha = 0.0f;
+
         if(playersProvider.IsReady)
         {
             SetupScoreboard();
@@ -55,6 +58,7 @@ public class Scoreboard : MonoBehaviour
 
     private void OnWinnerIDSet(int lastValue, int newValue)
     {
+        Debug.Log($"Player: {playersProvider.ClientPlayer.PlayerID}, On winnerIDSET: last{lastValue}, new {newValue}");
         if (newValue < 0)
             return;
 
@@ -63,6 +67,8 @@ public class Scoreboard : MonoBehaviour
         SetScoreboardDisplayStatus(true);
 
         //show gameover screen
+
+        gameOverUI.ShowGameOverScreen(playersProvider.AllPlayers[newValue]);
     }
 
     private void SetScoreboardDisplayStatus(bool show)
