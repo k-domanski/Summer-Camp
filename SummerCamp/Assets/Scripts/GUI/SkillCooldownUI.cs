@@ -28,7 +28,7 @@ public class SkillCooldownUI : MonoBehaviour
         //playerData = gameObject.transform.root.GetComponent<PlayerData>();
 
         if(playersProvider.ClientPlayer.PlayerID == playerData.PlayerID)
-            skillController.onSkillActive += ShowIndicator;
+            skillController.SkillActive += ShowIndicator;
         
     }
 

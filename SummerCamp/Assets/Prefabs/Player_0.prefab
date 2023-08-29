@@ -453,6 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillManager: {fileID: 5848162032822881422}
+  primarySkill: {fileID: 8595941780953328005}
   secondarySkill: {fileID: 678469165146090280}
 --- !u!114 &8595941780953328005
 MonoBehaviour:

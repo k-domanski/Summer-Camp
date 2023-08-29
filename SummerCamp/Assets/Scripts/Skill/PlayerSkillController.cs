@@ -1,17 +1,16 @@
-﻿
-    using System;
-    using Elympics;
+﻿    using Elympics;
     using UnityEngine;
 
     public class PlayerSkillController : ElympicsMonoBehaviour
     {
-        
         [SerializeField] private SkillManager skillManager;
-        //[SerializeField]
-        //private SkillController primarySkill;
+        [SerializeField]
+        private SkillController primarySkill;
         [SerializeField]
         private SkillController secondarySkill;
-        
+
+        public SkillController SecondarySkillController => secondarySkill;
+        public SkillController PrimarySkillController => primarySkill;
         public ElympicsInt secondarySkillId { get; private set; } = new ElympicsInt(-1);
 
         public void Start()
@@ -44,7 +43,8 @@
         
         public void SetSkill(int skillID)
         {
-            secondarySkill.Set(skillManager.GetSkill(skillID));
+            var skill = skillManager.GetSkill(skillID);
+            secondarySkill.Set(skill);
         }
 
         private void OnSecondarySkillChanged(int lastvalue, int newvalue)

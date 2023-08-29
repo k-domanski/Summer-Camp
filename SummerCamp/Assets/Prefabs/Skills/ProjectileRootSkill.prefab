@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb727f55c547c54998737848bdc6c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillImage: {fileID: 21300000, guid: 6f0bd76ff940cb24d95f30755143af94, type: 3}
   skillID: 1
   fireRate: 20
   skillCharges: 2
