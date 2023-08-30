@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class FloorManager : MonoBehaviour
 {
@@ -9,12 +10,47 @@ public class FloorManager : MonoBehaviour
 
     public List<Transform> FloorTiles { get; private set; } = new List<Transform>();
 
+    private System.Random random;
+
     private void Awake()
     {
+        random = new System.Random();
+
         foreach(var collider in gameObject.GetComponentsInChildren<BoxCollider>())
         {
             FloorTiles.Add(collider.transform);
         }
+    }
+    
+    public Transform GetSpawnPointWithoutTypeInRange<T>(float range) where T : Component
+    {
+        var randomizedSpawnPoints = GetRandomizedSpawnPoints();
+
+        Transform chosenSpawnPoint = null;
+
+        foreach (Transform transform in randomizedSpawnPoints)
+        {
+            chosenSpawnPoint = transform;
+
+            Collider[] objectsInRange = Physics.OverlapSphere(chosenSpawnPoint.position, range);
+
+            if (!objectsInRange.Any(x => x.transform.root.gameObject.TryGetComponent<T>(out _)))
+            {
+                break;
+            }
+        }
+
+        return chosenSpawnPoint;
+    }
+
+    public void RemoveTile(Transform tile)
+    {
+        FloorTiles.Remove(tile);
+    }
+
+    private IOrderedEnumerable<Transform> GetRandomizedSpawnPoints()
+    {
+        return FloorTiles.OrderBy(x => random.Next());
     }
 
     [ContextMenu("Set Tiles Position")]
