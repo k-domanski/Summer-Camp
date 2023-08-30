@@ -431,8 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa38e2422ab7d2b49bc572b4ef88de9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorManager: {fileID: 0}
-  gameManager: {fileID: 0}
+  timeStepForTileRemove: 5
 --- !u!114 &1604701050642744803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,6 +576,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 481
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -651,6 +655,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 477
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -727,6 +736,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 461
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -801,6 +815,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 462
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -952,6 +971,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 474
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1026,6 +1050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 480
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -1102,6 +1131,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 483
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1176,6 +1210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 478
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -1252,6 +1291,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 464
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1327,6 +1371,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 473
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1401,6 +1450,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 458
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -1482,6 +1536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 467
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1556,6 +1615,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 471
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -1632,6 +1696,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 465
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1706,6 +1775,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 459
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -1782,6 +1856,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 486
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1856,6 +1935,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 476
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -1932,6 +2016,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 475
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -2006,6 +2095,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 460
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -2082,6 +2176,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 469
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -2156,6 +2255,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 466
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -2232,6 +2336,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 472
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -2306,6 +2415,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 485
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -2382,6 +2496,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 484
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -2456,6 +2575,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 468
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -2532,6 +2656,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 479
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -2606,6 +2735,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 470
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
@@ -2682,6 +2816,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTile (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 463
+      objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -2756,6 +2895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTile (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013375290873120075, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
+        type: 3}
+      propertyPath: networkId
+      value: 482
       objectReference: {fileID: 0}
     - target: {fileID: 9045156780860616774, guid: 7d40ecf27f9b7da4eafb440f89dba4d7,
         type: 3}
