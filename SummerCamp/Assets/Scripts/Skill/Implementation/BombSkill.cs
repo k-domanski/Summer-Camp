@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Elympics;
 
-public class AreaSkill : ASkill
+public class BombSkill : ASkill
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private float radius = 15.0f;
-    [SerializeField] private float slowAmount = 5.0f;
-    
+
     private Vector3 aimPosition;
 
     public override void UpdateAimPosition(Vector3 worldPosition)
@@ -23,18 +21,12 @@ public class AreaSkill : ASkill
     protected override void ProcessSkillAction()
     {
         var area = CreateArea();
-
-        if(effect !=null)
-            area.GetComponent<SlowEffectArea>().SetEffect(effect);
-
         area.transform.position = new Vector3(aimPosition.x, area.transform.position.y, aimPosition.z);
     }
 
     private GameObject CreateArea()
     {
         var area = ElympicsInstantiate(prefab.gameObject.name, this.PredictableFor);
-        area.GetComponent<SlowEffectArea>().SetOwner(transform.root.gameObject.GetComponent<ElympicsBehaviour>());
         return area;
     }
-
 }
