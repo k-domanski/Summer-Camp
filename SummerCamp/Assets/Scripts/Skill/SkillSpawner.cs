@@ -3,7 +3,7 @@ using Elympics;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillSpawner : ElympicsMonoBehaviour, IUpdatable
+public class SkillSpawner : ElympicsMonoBehaviour, IUpdatable, IRemovable
 {
     [SerializeField]
     private GameManager manager;
@@ -71,7 +71,6 @@ public class SkillSpawner : ElympicsMonoBehaviour, IUpdatable
     public void Pick()
     {
         ResetSpawner();
-        spawn.SetActive(false);
         onSkillPickedUp?.Invoke(this);
     }
 
@@ -79,5 +78,11 @@ public class SkillSpawner : ElympicsMonoBehaviour, IUpdatable
     {
         TimeToSpawn.Value = cooldownTime;
         SkillID = skillManager.GetRandomSkillID();
+        spawn.SetActive(false);
+    }
+
+    public void Remove()
+    {
+        Pick();
     }
 }

@@ -32,7 +32,11 @@ public class FloorManager : MonoBehaviour
         {
             chosenSpawnPoint = transform;
 
-            Collider[] objectsInRange = Physics.OverlapSphere(chosenSpawnPoint.position, range);
+            Collider[] objectsInRange = Physics.OverlapSphere(
+                chosenSpawnPoint.position, 
+                range, 
+                Physics.AllLayers, 
+                QueryTriggerInteraction.Collide);
 
             if (!objectsInRange.Any(x => x.transform.root.gameObject.TryGetComponent<T>(out _)))
             {

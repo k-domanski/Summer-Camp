@@ -4,7 +4,7 @@ using UnityEngine;
 using Elympics;
 using System;
 
-public class SkillSpawnerManager : ElympicsMonoBehaviour, IInitializable, IUpdatable
+public class SkillSpawnerManager : ElympicsMonoBehaviour, IInitializable
 {
     [SerializeField] private float timeToSpawn = 10.0f;
     [SerializeField] private int maxSpawners = 3;
@@ -17,10 +17,6 @@ public class SkillSpawnerManager : ElympicsMonoBehaviour, IInitializable, IUpdat
     private List<SkillSpawner> activeSpawners = new List<SkillSpawner>();
     private Queue<SkillSpawner> availableSpawners = new Queue<SkillSpawner>();
     private int timeMultiplier = 1;
-
-    public void ElympicsUpdate()
-    {
-    }
 
     public void Initialize()
     {
@@ -62,7 +58,7 @@ public class SkillSpawnerManager : ElympicsMonoBehaviour, IInitializable, IUpdat
             return;
 
         var spawner = availableSpawners.Dequeue();
-        spawner.transform.position = floorManager.GetSpawnPointWithoutTypeInRange<SkillSpawner>(2.0f * Mathf.Sqrt(2)).position;
+        spawner.transform.position = floorManager.GetSpawnPointWithoutTypeInRange<SkillSpawnerManager>(2.0f * Mathf.Sqrt(2)).position;
 
         activeSpawners.Add(spawner);
         spawner.gameObject.SetActive(true);
@@ -70,12 +66,12 @@ public class SkillSpawnerManager : ElympicsMonoBehaviour, IInitializable, IUpdat
         spawner.onSkillPickedUp += OnSkillPickedUp;
     }
 
-    private void OnSkillPickedUp(SkillSpawner obj)
+    private void OnSkillPickedUp(SkillSpawner spawner)
     {
-        activeSpawners.Remove(obj);
-        availableSpawners.Enqueue(obj);
+        activeSpawners.Remove(spawner);
+        availableSpawners.Enqueue(spawner);
 
-        obj.onSkillPickedUp -= OnSkillPickedUp;
-        obj.gameObject.SetActive(false);
+        spawner.onSkillPickedUp -= OnSkillPickedUp;
+        spawner.gameObject.SetActive(false);
     }
 }
