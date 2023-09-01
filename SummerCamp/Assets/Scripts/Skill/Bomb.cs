@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
 
-public class Bomb : ElympicsMonoBehaviour,IUpdatable
+public class Bomb : ElympicsMonoBehaviour, IUpdatable, IRemovable
 {
     [SerializeField] private float range;
     [SerializeField] private float timeToBoom;
@@ -23,6 +23,11 @@ public class Bomb : ElympicsMonoBehaviour,IUpdatable
         {
             Explode();
         }
+    }
+
+    public void Remove()
+    {
+        markedToDestroy.Value = true;
     }
 
     private void Explode()

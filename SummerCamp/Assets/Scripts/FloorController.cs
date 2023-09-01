@@ -56,9 +56,23 @@ public class FloorController : ElympicsMonoBehaviour, IInitializable
 
     private void RemoveTile(Transform tile)
     {
+        CleanObjectsFromTile(tile);
         floorManager.RemoveTile(tile);
         var rb = tile.gameObject.AddComponent<Rigidbody>();
         rb.mass = 100;
         rb.useGravity = true;
+    }
+
+    private void CleanObjectsFromTile(Transform tile)
+    {
+        Collider[] objects = Physics.OverlapBox(tile.position, new Vector3(2.0f, 2.0f, 2.0f));
+
+        foreach(Collider obj in objects)
+        {
+            if(obj.TryGetComponent<IRemovable>(out var removable))
+            {
+                removable.Remove();
+            }
+        }
     }
 }
