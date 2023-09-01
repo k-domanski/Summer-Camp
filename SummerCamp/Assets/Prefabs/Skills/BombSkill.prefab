@@ -78,7 +78,7 @@ MonoBehaviour:
   skillImage: {fileID: 21300000, guid: 288b2315e87a2c44996191996acdd69f, type: 3}
   skillID: 2
   fireRate: 60
-  skillCharges: 10
+  skillCharges: 3
   indicator: {fileID: 8982792990996282461}
   effect: {fileID: 0}
   prefab: {fileID: 3799054621827622288, guid: 6bb8f87c6b6f30f48a52af3f40945750, type: 3}
