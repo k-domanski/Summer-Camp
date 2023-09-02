@@ -392,6 +392,7 @@ MonoBehaviour:
   destination: {fileID: 1522352763}
   reachMargin: 0.05
   moveSpeed: 10
+  gameManager: {fileID: 641445758}
 --- !u!114 &236517777
 MonoBehaviour:
   m_ObjectHideFlags: 0

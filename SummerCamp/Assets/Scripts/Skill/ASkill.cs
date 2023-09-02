@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
+using UnityEngine.Serialization;
 
 public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
 {
@@ -21,9 +22,9 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
     public int Charges => skillCurrentCharges.Value;
     public Sprite SkillImage => skillImage;
 
-    protected ElympicsFloat currentTimeBetweenShots = new ElympicsFloat(0.0f);
+    public ElympicsFloat CurrentTimeBetweenShots = new ElympicsFloat(0.0f);
     protected float timeBetweenShots = 0.0f;
-    protected bool isReady => currentTimeBetweenShots.Value >= timeBetweenShots;
+    protected bool isReady => CurrentTimeBetweenShots.Value >= timeBetweenShots;
     protected ElympicsInt skillCurrentCharges = new ElympicsInt();
 
     #region IInitializable
@@ -39,9 +40,9 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
     {
         if (!isReady)
         {
-            currentTimeBetweenShots.Value += Elympics.TickDuration;
+            CurrentTimeBetweenShots.Value += Elympics.TickDuration;
         }
-        TimeRatio.Value = currentTimeBetweenShots.Value / timeBetweenShots;
+        TimeRatio.Value = CurrentTimeBetweenShots.Value / timeBetweenShots;
     }
     #endregion
 
@@ -66,7 +67,7 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
         if(isReady)
         {
             ProcessSkillAction();
-            currentTimeBetweenShots.Value = 0.0f;
+            CurrentTimeBetweenShots.Value = 0.0f;
             skillCurrentCharges.Value--;
         }
 
