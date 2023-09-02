@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Elympics;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Move : ElympicsMonoBehaviour, IUpdatable
 {
@@ -15,13 +12,20 @@ public class Move : ElympicsMonoBehaviour, IUpdatable
     private float reachMargin = 0.05f;
     [SerializeField]
     private float moveSpeed = 3f;
-
+    [SerializeField]
+    private GameManager gameManager;
+    
     private Vector3 currentDirection;
     private bool toOrigin;
-
+    
     private void Start()
     {
-        MoveToDestination();
+        gameManager.RaceStarted += MoveToDestination;
+    }
+
+    private void OnDestroy()
+    {
+        gameManager.RaceStarted -= MoveToDestination;
     }
 
     public void ElympicsUpdate()

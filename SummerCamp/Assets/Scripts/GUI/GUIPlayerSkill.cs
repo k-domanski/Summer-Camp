@@ -10,6 +10,8 @@ public class GUIPlayerSkill : MonoBehaviour
     private Image skillImage;
     [SerializeField]
     private TextMeshProUGUI usageText;
+
+    private ASkill currentSkill;
     
     private void Awake()
     {
@@ -41,14 +43,27 @@ public class GUIPlayerSkill : MonoBehaviour
 
     private void SetCharges(int objCharges)
     {
-        gameObject.SetActive(objCharges > 0);
         usageText.text = $"Charges: " + objCharges;
+        usageText.gameObject.SetActive(objCharges > 0);
     }
 
     private void OnSkillChanged(ASkill skill)
     {
+        if (currentSkill != null)
+        {
+            currentSkill.TimeRatio.ValueChanged -= OnCooldownChanged;
+        }
+
+        currentSkill = skill;
+        
+        skill.TimeRatio.ValueChanged += OnCooldownChanged;
         ResetSkill(skill.SkillImage, 1);
         SetCharges(skill.Charges);
+    }
+
+    private void OnCooldownChanged(float lastvalue, float newvalue)
+    {
+        SetCooldownFill(newvalue);
     }
 
     private void SkillActive(bool skillActive, ASkill arg2)
