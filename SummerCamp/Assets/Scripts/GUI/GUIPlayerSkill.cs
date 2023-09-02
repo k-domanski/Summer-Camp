@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GUIPlayerSkill : MonoBehaviour
@@ -7,6 +8,8 @@ public class GUIPlayerSkill : MonoBehaviour
     private Image skillCooldown;
     [SerializeField]
     private Image skillImage;
+    [SerializeField]
+    private TextMeshProUGUI usageText;
     
     private void Awake()
     {
@@ -28,12 +31,24 @@ public class GUIPlayerSkill : MonoBehaviour
     {
         skillController.SkillActive += SkillActive;
         skillController.SkillChanged += OnSkillChanged;
+        skillController.SkillUsed += OnSkillUsed;
     }
 
-    
+    private void OnSkillUsed(ASkill obj)
+    {
+        SetCharges(obj.Charges);
+    }
+
+    private void SetCharges(int objCharges)
+    {
+        gameObject.SetActive(objCharges > 0);
+        usageText.text = $"Charges: " + objCharges;
+    }
+
     private void OnSkillChanged(ASkill skill)
     {
         ResetSkill(skill.SkillImage, 1);
+        SetCharges(skill.Charges);
     }
 
     private void SkillActive(bool skillActive, ASkill arg2)

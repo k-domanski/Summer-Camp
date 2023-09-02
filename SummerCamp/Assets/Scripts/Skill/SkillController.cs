@@ -11,6 +11,7 @@ public class SkillController : ElympicsMonoBehaviour
 
     public event Action<ASkill> SkillChanged;
     public event Action<bool, ASkill> SkillActive;
+    public event Action<ASkill> SkillUsed;
 
     public void ProcessInput(bool isFire, bool isActive, Vector3 worldPos)
     {
@@ -27,7 +28,10 @@ public class SkillController : ElympicsMonoBehaviour
             
             if (isFire)
             {
-                currentSkill.PerformPrimaryAction();
+                if (currentSkill.TryPerformPrimaryAction())
+                {
+                    SkillUsed?.Invoke(currentSkill);
+                }
             }
         }
 

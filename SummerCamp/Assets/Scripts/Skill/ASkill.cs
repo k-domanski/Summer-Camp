@@ -18,6 +18,7 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
     public SkillIndicator Indicator => indicator;
     public int SkillID => skillID;
     public bool HasCharges => skillCurrentCharges.Value > 0;
+    public int Charges => skillCurrentCharges.Value;
     public Sprite SkillImage => skillImage;
 
     protected ElympicsFloat currentTimeBetweenShots = new ElympicsFloat(0.0f);
@@ -44,9 +45,9 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
     }
     #endregion
 
-    public void PerformPrimaryAction()
+    public bool TryPerformPrimaryAction()
     {
-        ExecutePrimaryActionIfReady();
+        return ExecutePrimaryActionIfReady();
     }
 
     public void ResetCharges()
@@ -58,14 +59,18 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
 
     protected abstract void ProcessSkillAction();
 
-    private void ExecutePrimaryActionIfReady()
+    private bool ExecutePrimaryActionIfReady()
     {
+        bool result = isReady;
+        
         if(isReady)
         {
             ProcessSkillAction();
             currentTimeBetweenShots.Value = 0.0f;
             skillCurrentCharges.Value--;
         }
+
+        return result;
     }
 
     private void CalculateTimeBetweenShots()
