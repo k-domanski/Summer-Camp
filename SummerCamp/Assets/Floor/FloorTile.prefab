@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 8013375290873120075}
   - component: {fileID: 1090922606596382572}
   - component: {fileID: 1277728927684363397}
+  - component: {fileID: 6645372853569177252}
   m_Layer: 0
   m_Name: FloorTile
   m_TagString: Untagged
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceNetworkId: 0
-  networkId: 488
+  networkId: 565
   predictableFor:
     playerIndex: -2
   isUpdatableForNonOwners: 0
@@ -194,3 +195,16 @@ MonoBehaviour:
   localRotationConfig:
     synchronizationEnabled: 0
     tolerance: 1
+--- !u!114 &6645372853569177252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728755461389323683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b73cfb23ce49858fd1c17dbea14886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: {fileID: 979785269065671670}

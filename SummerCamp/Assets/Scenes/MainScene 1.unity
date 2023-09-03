@@ -2652,6 +2652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1604701050642744802, guid: cbf36fb50fbb8c4408c0406070298074,
         type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 641445758}
+    - target: {fileID: 1604701050642744802, guid: cbf36fb50fbb8c4408c0406070298074,
+        type: 3}
       propertyPath: timeStepForTileRemove
       value: 5
       objectReference: {fileID: 0}

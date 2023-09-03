@@ -24,7 +24,7 @@ public class Spawner : ElympicsMonoBehaviour
 
     public void Spawn<T>(T obj, float range) where T : Component
     {
-        Vector3 spawnPoint = floorManager.GetSpawnPointWithoutTypeInRange<T>(range).position;
+        Vector3 spawnPoint = floorManager.GetSpawnPointWithoutTypeInRange<T>(range).transform.position;
         obj.transform.position = spawnPoint;
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
 
@@ -7,9 +6,9 @@ public class FloorController : ElympicsMonoBehaviour, IInitializable
 {
     [Header("Parameters")]
     [SerializeField] private float timeStepForTileRemove = 5.0f;
-
+    [SerializeField] private GameManager gameManager;
+    
     private FloorManager floorManager;
-    private GameManager gameManager;
     private int timeMultiplier = 1;
 
     public void Initialize()
@@ -18,18 +17,13 @@ public class FloorController : ElympicsMonoBehaviour, IInitializable
             return;
 
         floorManager = GetComponent<FloorManager>();
-        gameManager = FindObjectOfType<GameManager>();
 
-
-        gameManager.IsRunning.ValueChanged += ProcessGameStart;
+        gameManager.RaceStarted += ProcessGameStart;
     }
 
-    private void ProcessGameStart(bool lastValue, bool newValue)
+    private void ProcessGameStart()
     {
-        if(newValue)
-        {
-            gameManager.CurrentTime.ValueChanged += ProcessCurrentTime;
-        }
+        gameManager.CurrentTime.ValueChanged += ProcessCurrentTime;
     }
 
     private void ProcessCurrentTime(float lastValue, float newValue)
@@ -42,10 +36,10 @@ public class FloorController : ElympicsMonoBehaviour, IInitializable
 
     private IEnumerator Test()
     {
-        Transform tile = floorManager.GetSpawnPointWithoutTypeInRange<PlayerData>(2 * Mathf.Sqrt(2));
+        FloorTile tile = floorManager.GetSpawnPointWithoutTypeInRange<PlayerData>(2 * Mathf.Sqrt(2));
         
         //material only on server but maybe it looks good? if so move to client
-        tile.gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+        tile.SetColor();
         
         timeMultiplier++;
         // spawn which tile to remove indicator?
@@ -54,7 +48,7 @@ public class FloorController : ElympicsMonoBehaviour, IInitializable
         RemoveTile(tile);
     }
 
-    private void RemoveTile(Transform tile)
+    private void RemoveTile(FloorTile tile)
     {
         CleanObjectsFromTile(tile);
         floorManager.RemoveTile(tile);
@@ -63,9 +57,9 @@ public class FloorController : ElympicsMonoBehaviour, IInitializable
         rb.useGravity = true;
     }
 
-    private void CleanObjectsFromTile(Transform tile)
+    private void CleanObjectsFromTile(FloorTile tile)
     {
-        Collider[] objects = Physics.OverlapBox(tile.position, new Vector3(2.0f, 2.0f, 2.0f));
+        Collider[] objects = Physics.OverlapBox(tile.transform.position, new Vector3(2.0f, 2.0f, 2.0f));
 
         foreach(Collider obj in objects)
         {

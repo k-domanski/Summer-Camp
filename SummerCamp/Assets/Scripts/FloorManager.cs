@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -8,7 +7,7 @@ public class FloorManager : MonoBehaviour
     [SerializeField] private Grid grid;
     [SerializeField] private Vector2Int maxSize;
 
-    public List<Transform> FloorTiles { get; private set; } = new List<Transform>();
+    public List<FloorTile> FloorTiles { get; private set; } = new List<FloorTile>();
 
     private System.Random random;
 
@@ -16,24 +15,21 @@ public class FloorManager : MonoBehaviour
     {
         random = new System.Random();
 
-        foreach(var collider in gameObject.GetComponentsInChildren<BoxCollider>())
-        {
-            FloorTiles.Add(collider.transform);
-        }
+        FloorTiles = GetComponentsInChildren<FloorTile>().ToList();
     }
     
-    public Transform GetSpawnPointWithoutTypeInRange<T>(float range) where T : Component
+    public FloorTile GetSpawnPointWithoutTypeInRange<T>(float range) where T : Component
     {
         var randomizedSpawnPoints = GetRandomizedSpawnPoints();
 
-        Transform chosenSpawnPoint = null;
+        FloorTile chosenSpawnPoint = null;
 
-        foreach (Transform transform in randomizedSpawnPoints)
+        foreach (FloorTile transform in randomizedSpawnPoints)
         {
             chosenSpawnPoint = transform;
 
             Collider[] objectsInRange = Physics.OverlapSphere(
-                chosenSpawnPoint.position, 
+                chosenSpawnPoint.transform.position, 
                 range, 
                 Physics.AllLayers, 
                 QueryTriggerInteraction.Collide);
@@ -47,12 +43,12 @@ public class FloorManager : MonoBehaviour
         return chosenSpawnPoint;
     }
 
-    public void RemoveTile(Transform tile)
+    public void RemoveTile(FloorTile tile)
     {
         FloorTiles.Remove(tile);
     }
 
-    private IOrderedEnumerable<Transform> GetRandomizedSpawnPoints()
+    private IOrderedEnumerable<FloorTile> GetRandomizedSpawnPoints()
     {
         return FloorTiles.OrderBy(x => random.Next());
     }

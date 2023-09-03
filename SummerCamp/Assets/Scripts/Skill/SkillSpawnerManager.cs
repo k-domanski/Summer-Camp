@@ -58,7 +58,7 @@ public class SkillSpawnerManager : ElympicsMonoBehaviour, IInitializable
             return;
 
         var spawner = availableSpawners.Dequeue();
-        spawner.transform.position = floorManager.GetSpawnPointWithoutTypeInRange<SkillSpawnerManager>(2.0f * Mathf.Sqrt(2)).position;
+        spawner.transform.position = floorManager.GetSpawnPointWithoutTypeInRange<SkillSpawnerManager>(2.0f * Mathf.Sqrt(2)).transform.position;
 
         activeSpawners.Add(spawner);
         spawner.gameObject.SetActive(true);
