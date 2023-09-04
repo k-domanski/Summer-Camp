@@ -14,13 +14,38 @@ public class Move : ElympicsMonoBehaviour, IUpdatable
     private float moveSpeed = 3f;
     [SerializeField]
     private GameManager gameManager;
-    
+    [SerializeField]
+    private PlayersProvider playersProvider;
+
+    private Vector3 startPos;
     private Vector3 currentDirection;
     private bool toOrigin;
     
     private void Start()
     {
+        startPos = origin.position;
+        ServerRegisterToPlayersDeath();
         gameManager.RaceStarted += MoveToDestination;
+    }
+
+    private void ServerRegisterToPlayersDeath()
+    {
+        if (Elympics.IsServer == false)
+        {
+            return;
+        }
+        foreach (PlayerData playerData in playersProvider.AllPlayers)
+        {
+            if (playerData.TryGetComponent<DeathController>(out DeathController fetchedComponent))
+            {
+                fetchedComponent.onPlayerDeath += ResetObstacles;
+            }
+        }
+    }
+
+    private void ResetObstacles(int obj)
+    {
+        this.transform.position = startPos;
     }
 
     private void OnDestroy()

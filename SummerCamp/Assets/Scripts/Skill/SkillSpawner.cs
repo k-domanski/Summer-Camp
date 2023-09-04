@@ -15,10 +15,10 @@ public class SkillSpawner : ElympicsMonoBehaviour, IUpdatable, IRemovable
     private GameObject spawn;
     [SerializeField]
     private float cooldownTime;
-
-    public int SkillID { get; private set; }
-    public bool AvailableForPickUp => spawn.activeInHierarchy;
     
+    public bool AvailableForPickUp => spawn.activeInHierarchy;
+
+    public ElympicsInt SkillID { get; private set; } = new ElympicsInt();
     public ElympicsFloat TimeToSpawn { get; private set; } = new ElympicsFloat();
 
     public event Action<SkillSpawner> onSkillPickedUp;
@@ -33,10 +33,6 @@ public class SkillSpawner : ElympicsMonoBehaviour, IUpdatable, IRemovable
 
     private void Start()
     {
-        //if (Elympics.IsServer)
-        //{
-        //    Pick();
-        //}
         if (Elympics.IsClient)
         {
             TimeToSpawn.ValueChanged += OnTimeChanged;
@@ -77,7 +73,11 @@ public class SkillSpawner : ElympicsMonoBehaviour, IUpdatable, IRemovable
     public void ResetSpawner()
     {
         TimeToSpawn.Value = cooldownTime;
-        SkillID = skillManager.GetRandomSkillID();
+        if (Elympics.IsServer)
+        {
+            SkillID.Value = skillManager.GetRandomSkillID();
+        }
+
         spawn.SetActive(false);
     }
 

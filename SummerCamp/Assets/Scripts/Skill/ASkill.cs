@@ -13,18 +13,19 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
     [SerializeField] protected SkillIndicator indicator;
     [SerializeField] protected SkillEffect effect;
 
-    public ElympicsFloat TimeRatio { get; private set; } = new ElympicsFloat();
+
+    protected float timeBetweenShots = 0.0f;
     public float TimeBetweenShots => timeBetweenShots;
     public GameObject Owner => transform.root.gameObject;
     public SkillIndicator Indicator => indicator;
     public int SkillID => skillID;
     public bool HasCharges => skillCurrentCharges.Value > 0;
     public int Charges => skillCurrentCharges.Value;
-    public Sprite SkillImage => skillImage;
-
-    public ElympicsFloat CurrentTimeBetweenShots = new ElympicsFloat(0.0f);
-    protected float timeBetweenShots = 0.0f;
+    public Sprite SkillImage => skillImage; 
     protected bool isReady => CurrentTimeBetweenShots.Value >= timeBetweenShots;
+    
+    public ElympicsFloat TimeRatio = new ElympicsFloat();
+    public ElympicsFloat CurrentTimeBetweenShots = new ElympicsFloat(0.0f);
     protected ElympicsInt skillCurrentCharges = new ElympicsInt();
 
     #region IInitializable
@@ -42,6 +43,7 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
         {
             CurrentTimeBetweenShots.Value += Elympics.TickDuration;
         }
+        
         TimeRatio.Value = CurrentTimeBetweenShots.Value / timeBetweenShots;
     }
     #endregion

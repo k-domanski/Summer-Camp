@@ -457,6 +457,7 @@ MonoBehaviour:
   reachMargin: 0.05
   moveSpeed: 10
   gameManager: {fileID: 641445758}
+  playersProvider: {fileID: 1816325128}
 --- !u!114 &236517777
 MonoBehaviour:
   m_ObjectHideFlags: 0
