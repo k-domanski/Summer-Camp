@@ -58,7 +58,6 @@ public class Scoreboard : MonoBehaviour
 
     private void OnWinnerIDSet(int lastValue, int newValue)
     {
-        Debug.Log($"Player: {playersProvider.ClientPlayer.PlayerID}, On winnerIDSET: last{lastValue}, new {newValue}");
         if (newValue < 0)
             return;
 

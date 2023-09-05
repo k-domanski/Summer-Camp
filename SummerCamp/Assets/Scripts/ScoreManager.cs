@@ -18,6 +18,7 @@ public class ScoreManager : ElympicsMonoBehaviour, IInitializable
     public event Action IsReadyChanged;
 
     private ElympicsArray<ElympicsInt> playerScores = null;
+    private ElympicsBool gameOver = new ElympicsBool();
 
     public void Initialize()
     {
@@ -72,6 +73,8 @@ public class ScoreManager : ElympicsMonoBehaviour, IInitializable
 
     private void ProcessPlayerDeath(int playerID)
     {
+        if (gameOver.Value)
+            return;
         //Dirty way to score for 2 players
         int index = playerID == 1 ? 0 : 1;
 
@@ -79,8 +82,9 @@ public class ScoreManager : ElympicsMonoBehaviour, IInitializable
 
         if(Elympics.IsServer && playerScores.Values[index].Value >= pointsToWin)
         {
-            Debug.Log($"Player ID: {index}, Points: {playerScores.Values[index].Value}, Points to win: {pointsToWin}");
+            //Debug.Log($"Player ID: {index}, Points: {playerScores.Values[index].Value}, Points to win: {pointsToWin}");
             WinnerID.Value = index;
+            gameOver.Value = true;
             //Change Game State?
             //Disable input, disable spawners, disable obstacles
             //Or something connected to WinnerID value changed event
