@@ -1407,6 +1407,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillSpawner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4200049116523830346, guid: 90e356019351dbf46bbadc7e6ab6565e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4232841949419764346, guid: 90e356019351dbf46bbadc7e6ab6565e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2232,6 +2237,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SkillSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200049116523830346, guid: 90e356019351dbf46bbadc7e6ab6565e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4232841949419764346, guid: 90e356019351dbf46bbadc7e6ab6565e,
         type: 3}
@@ -5681,6 +5691,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1102808405}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1120488576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5422175904368190074, guid: 533dd508fa84fc44dbb890b3b49edd85,
+    type: 3}
+  m_PrefabInstance: {fileID: 5218324856575963987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1120488579
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120488576}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1128269708
 GameObject:
   m_ObjectHideFlags: 0
@@ -6788,6 +6816,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SkillSpawner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200049116523830346, guid: 90e356019351dbf46bbadc7e6ab6565e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4232841949419764346, guid: 90e356019351dbf46bbadc7e6ab6565e,
         type: 3}
@@ -11451,10 +11484,70 @@ PrefabInstance:
       propertyPath: playersProvider
       value: 
       objectReference: {fileID: 1816325128}
+    - target: {fileID: 2020812449974929521, guid: 533dd508fa84fc44dbb890b3b49edd85,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.052103516
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020812449974929521, guid: 533dd508fa84fc44dbb890b3b49edd85,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020812449974929521, guid: 533dd508fa84fc44dbb890b3b49edd85,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126276528166010692, guid: 533dd508fa84fc44dbb890b3b49edd85,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3763529715061570371, guid: 533dd508fa84fc44dbb890b3b49edd85,
         type: 3}
       propertyPath: m_Name
       value: PlayerHud
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169435067286615220, guid: 533dd508fa84fc44dbb890b3b49edd85,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422175904368190075, guid: 533dd508fa84fc44dbb890b3b49edd85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422175904368190075, guid: 533dd508fa84fc44dbb890b3b49edd85,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422175904368190075, guid: 533dd508fa84fc44dbb890b3b49edd85,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422175904368190075, guid: 533dd508fa84fc44dbb890b3b49edd85,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753076523896376161, guid: 533dd508fa84fc44dbb890b3b49edd85,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753076523896376161, guid: 533dd508fa84fc44dbb890b3b49edd85,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5753076523896376161, guid: 533dd508fa84fc44dbb890b3b49edd85,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6231916735980735599, guid: 533dd508fa84fc44dbb890b3b49edd85,
         type: 3}

@@ -20,6 +20,12 @@ public class SkillSpawnerManager : ElympicsMonoBehaviour, IInitializable
 
     public void Initialize()
     {
+        foreach (SkillSpawner skillSpawner in GetComponentsInChildren<SkillSpawner>())
+        {
+            availableSpawners.Enqueue(skillSpawner);
+            skillSpawner.gameObject.SetActive(false);
+        }
+
         if (Elympics.IsClient || Elympics.IsBot)
             return;
 
@@ -28,11 +34,7 @@ public class SkillSpawnerManager : ElympicsMonoBehaviour, IInitializable
 
         gameManager.IsRunning.ValueChanged += ProcessGameStart;
 
-        foreach(SkillSpawner skillSpawner in GetComponentsInChildren<SkillSpawner>())
-        {
-            availableSpawners.Enqueue(skillSpawner);
-            skillSpawner.gameObject.SetActive(false);
-        }
+        
     }
 
     private void ProcessGameStart(bool lastValue, bool newValue)

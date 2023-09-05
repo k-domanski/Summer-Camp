@@ -13,9 +13,11 @@ public class GUIPlayerSkill : MonoBehaviour
     private TextMeshProUGUI usageText;
 
     private ASkill currentSkill;
-    
+    private CanvasGroup canvasGroup;
+
     private void Awake()
     {
+        canvasGroup = GetComponent<CanvasGroup>();
         ResetSkill(null, 0);
     }
 
@@ -23,6 +25,7 @@ public class GUIPlayerSkill : MonoBehaviour
     {
         skillImage.sprite = img;
         SetCooldownFill(fill);
+        canvasGroup.alpha = fill;
     }
 
     private void SetCooldownFill(float fill)
