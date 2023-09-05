@@ -33,7 +33,7 @@ public class Bomb : ElympicsMonoBehaviour, IUpdatable, IRemovable
         {
             currentTimeToDestroy.Value += Elympics.TickDuration;
 
-            if(currentBombTime.Value >= timeToDestroy)
+            if(currentTimeToDestroy.Value >= timeToDestroy)
                 ElympicsDestroy(this.gameObject);
 
         }
@@ -68,7 +68,6 @@ public class Bomb : ElympicsMonoBehaviour, IUpdatable, IRemovable
         bombModel.SetActive(false);
         markedToDestroy.Value = true;
         currentBombTime.Value = 0.0f;
-        currentTimeToDestroy.Value = 0.0f;
         explode.Value = true;
     }
 

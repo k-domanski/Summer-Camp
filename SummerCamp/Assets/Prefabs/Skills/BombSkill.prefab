@@ -77,8 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillImage: {fileID: 21300000, guid: 288b2315e87a2c44996191996acdd69f, type: 3}
   skillID: 2
-  skillCooldownSeconds: 0
-  skillCharges: 1
+  skillCooldownSeconds: 3
+  skillCharges: 2
   indicator: {fileID: 8982792990996282461}
   effect: {fileID: 0}
   CurrentTimeBetweenShots:

@@ -41,6 +41,7 @@ public class SkillSpawnerManager : ElympicsMonoBehaviour, IInitializable
     {
         if(newValue)
         {
+            Spawn();
             gameManager.CurrentTime.ValueChanged += ProcessGameTimeChanged;
         }
     }

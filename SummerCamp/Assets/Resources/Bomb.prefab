@@ -176,8 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552ab7233991b574d920d058bfa277d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 4
-  timeToBoom: 3
+  range: 6
+  timeToBoom: 2
   force: 40
   timeToDestroy: 2
   bombModel: {fileID: 3799054621974943627}

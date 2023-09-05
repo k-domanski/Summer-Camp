@@ -23,7 +23,7 @@ public class AreaSkill : ASkill
 
         Ray ray = new Ray(aimPosition + Vector3.up, Vector3.down);
 
-        canUseSkill = Physics.Raycast(ray, 1.5f, layer);
+        canUseSkill = Physics.Raycast(ray, 1.5f, layer);    // dirty way to check if floor is there
 
         indicator.ChangeColor(canUseSkill);
 
