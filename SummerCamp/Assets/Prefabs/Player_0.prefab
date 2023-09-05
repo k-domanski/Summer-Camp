@@ -133,6 +133,9 @@ MonoBehaviour:
   movementController: {fileID: 3735805920808764766}
   playerCamera: {fileID: 0}
   additionalRaycastDistance: 0.25
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &3931850310245502397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,6 +597,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillsManager
       objectReference: {fileID: 0}
+    - target: {fileID: 935594705980061723, guid: e80c0f11b7ccc064a81114eb2255fe05,
+        type: 3}
+      propertyPath: networkId
+      value: 580
+      objectReference: {fileID: 0}
     - target: {fileID: 1167561667098556076, guid: e80c0f11b7ccc064a81114eb2255fe05,
         type: 3}
       propertyPath: networkId
@@ -603,6 +611,11 @@ PrefabInstance:
         type: 3}
       propertyPath: networkId
       value: 435
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681764603756622383, guid: e80c0f11b7ccc064a81114eb2255fe05,
+        type: 3}
+      propertyPath: networkId
+      value: 581
       objectReference: {fileID: 0}
     - target: {fileID: 4392985353662442711, guid: e80c0f11b7ccc064a81114eb2255fe05,
         type: 3}

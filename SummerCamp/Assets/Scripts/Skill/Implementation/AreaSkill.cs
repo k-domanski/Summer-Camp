@@ -8,6 +8,8 @@ public class AreaSkill : ASkill
     [SerializeField] private GameObject prefab;
     [SerializeField] private float radius = 15.0f;
     [SerializeField] private float slowAmount = 5.0f;
+
+    [SerializeField] private LayerMask layer;
     
     private Vector3 aimPosition;
 
@@ -18,10 +20,18 @@ public class AreaSkill : ASkill
         aimPosition = transform.position + magnitude;
 
         indicator.ApplyPosition(aimPosition);
+
+        Ray ray = new Ray(aimPosition + Vector3.up, Vector3.down);
+
+        canUseSkill = Physics.Raycast(ray, 1.5f, layer);
+
+        indicator.ChangeColor(canUseSkill);
+
     }
 
     protected override void ProcessSkillAction()
     {
+
         var area = CreateArea();
 
         if(effect !=null)

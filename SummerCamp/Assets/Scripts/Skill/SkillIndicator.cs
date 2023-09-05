@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class SkillIndicator : MonoBehaviour
 {
+    [SerializeField] private Image image;
+    [SerializeField] private Color color;
+
     private void Awake()
     {
         gameObject.SetActive(false);
@@ -31,5 +34,10 @@ public class SkillIndicator : MonoBehaviour
     public void ShowIndicator(bool show)
     {
         gameObject.SetActive(show);
+    }
+
+    public void ChangeColor(bool change)
+    {
+        image.color = change ? color : Color.red;
     }
 }

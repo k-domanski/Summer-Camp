@@ -23,6 +23,8 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
     public ElympicsFloat CurrentTimeBetweenShots = new ElympicsFloat(0.0f);
     protected ElympicsInt skillCurrentCharges = new ElympicsInt();
 
+    protected bool canUseSkill = false;
+
     #region IInitializable
     public void Initialize()
     {
@@ -58,7 +60,7 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
     {
         bool result = isReady;
         
-        if(isReady)
+        if(isReady && canUseSkill)
         {
             ProcessSkillAction();
             CurrentTimeBetweenShots.Value = 0.0f;

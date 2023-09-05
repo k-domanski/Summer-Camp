@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1090922606596382572}
   - component: {fileID: 1277728927684363397}
   - component: {fileID: 6645372853569177252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FloorTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceNetworkId: 0
-  networkId: 565
+  networkId: 579
   predictableFor:
     playerIndex: -2
   isUpdatableForNonOwners: 0

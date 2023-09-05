@@ -220,6 +220,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8618556}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &39149717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1604701050610259766, guid: cbf36fb50fbb8c4408c0406070298074,
+    type: 3}
+  m_PrefabInstance: {fileID: 1604701050642744798}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &53756933 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2151253508090462406, guid: 3011f4377a137a04b8ca1c0c70904068,
@@ -9237,12 +9243,12 @@ PrefabInstance:
         type: 3}
       propertyPath: allskills.Array.data[1]
       value: 
-      objectReference: {fileID: 1540072480}
+      objectReference: {fileID: 1817783862}
     - target: {fileID: 5848162032822881422, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: allskills.Array.data[2]
       value: 
-      objectReference: {fileID: 1817783862}
+      objectReference: {fileID: 1540072480}
     - target: {fileID: 6260942684111525714, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: m_SortingOrder
@@ -10785,12 +10791,25 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1604701050642744798}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 39149717}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 885158dbafe458d459768993591a5969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1604701050642744804
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39149717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 248, y: 1, z: 240}
+  m_Center: {x: 24, y: -0.5, z: 20}
 --- !u!1001 &2151253508043556035
 PrefabInstance:
   m_ObjectHideFlags: 0

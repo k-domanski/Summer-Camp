@@ -81,12 +81,13 @@ MonoBehaviour:
   skillCharges: 1
   indicator: {fileID: 8982792990996282461}
   effect: {fileID: 0}
-  TimeRatio:
-    currentValue: 0
   CurrentTimeBetweenShots:
     currentValue: 0
   prefab: {fileID: 3799054621827622288, guid: 6bb8f87c6b6f30f48a52af3f40945750, type: 3}
   radius: 15
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1001 &8743018636289753955
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ public class BombSkill : ASkill
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private float radius = 15.0f;
+    [SerializeField] private LayerMask layer;
+
 
     private Vector3 aimPosition;
 
@@ -16,6 +18,11 @@ public class BombSkill : ASkill
         aimPosition = transform.position + magnitude;
 
         indicator.ApplyPosition(aimPosition);
+
+        Ray ray = new Ray(aimPosition + Vector3.up, Vector3.down);
+        canUseSkill = Physics.Raycast(ray, 1.5f, layer);    // dirty way to check if floor is there
+
+        indicator.ChangeColor(canUseSkill);
     }
 
     protected override void ProcessSkillAction()
