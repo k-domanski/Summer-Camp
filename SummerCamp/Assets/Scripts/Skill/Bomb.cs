@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
+using System;
 
 public class Bomb : ElympicsMonoBehaviour, IUpdatable, IRemovable
 {
@@ -18,6 +19,13 @@ public class Bomb : ElympicsMonoBehaviour, IUpdatable, IRemovable
     public ElympicsFloat currentTimeToDestroy = new ElympicsFloat();
 
     public ElympicsBool markedToDestroy = new ElympicsBool();
+    public ElympicsBool explode = new ElympicsBool();
+
+
+    private void Awake()
+    {
+        explode.ValueChanged += PlayExplosionParticles;
+    }
 
     public void ElympicsUpdate()
     {
@@ -58,9 +66,15 @@ public class Bomb : ElympicsMonoBehaviour, IUpdatable, IRemovable
             }
         }
         bombModel.SetActive(false);
-        explosionParticles.Play();
         markedToDestroy.Value = true;
         currentBombTime.Value = 0.0f;
         currentTimeToDestroy.Value = 0.0f;
+        explode.Value = true;
+    }
+
+    private void PlayExplosionParticles(bool lastValue, bool newValue)
+    {
+        if (newValue)
+            explosionParticles.Play();
     }
 }
