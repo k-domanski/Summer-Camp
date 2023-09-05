@@ -9288,12 +9288,12 @@ PrefabInstance:
         type: 3}
       propertyPath: allskills.Array.data[1]
       value: 
-      objectReference: {fileID: 1817783862}
+      objectReference: {fileID: 1540072480}
     - target: {fileID: 5848162032822881422, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: allskills.Array.data[2]
       value: 
-      objectReference: {fileID: 1540072480}
+      objectReference: {fileID: 1817783862}
     - target: {fileID: 6260942684111525714, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: m_SortingOrder

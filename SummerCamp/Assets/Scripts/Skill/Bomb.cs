@@ -37,12 +37,14 @@ public class Bomb : ElympicsMonoBehaviour, IUpdatable, IRemovable
                 ElympicsDestroy(this.gameObject);
 
         }
-
-        currentBombTime.Value += Elympics.TickDuration;
-
-        if(currentBombTime.Value >= timeToBoom)
+        else
         {
-            Explode();
+            currentBombTime.Value += Elympics.TickDuration;
+
+            if (currentBombTime.Value >= timeToBoom)
+            {
+                Explode();
+            }
         }
     }
 
