@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +27,7 @@ public class GUIPlayerSkill : MonoBehaviour
 
     private void SetCooldownFill(float fill)
     {
-        skillCooldown.fillAmount = 0;
+        skillCooldown.fillAmount = fill;
     }
 
     public void Set(SkillController skillController)
@@ -49,21 +50,20 @@ public class GUIPlayerSkill : MonoBehaviour
 
     private void OnSkillChanged(ASkill skill)
     {
-        if (currentSkill != null)
-        {
-            currentSkill.TimeRatio.ValueChanged -= OnCooldownChanged;
-        }
-
         currentSkill = skill;
         
-        skill.TimeRatio.ValueChanged += OnCooldownChanged;
         ResetSkill(skill.SkillImage, 1);
         SetCharges(skill.Charges);
+        StartCoroutine(SetFill());
     }
 
-    private void OnCooldownChanged(float lastvalue, float newvalue)
+    public IEnumerator SetFill()
     {
-        SetCooldownFill(newvalue);
+        while (currentSkill != null)
+        {
+            SetCooldownFill(currentSkill.TimeRatio);
+            yield return null;
+        }
     }
 
     private void SkillActive(bool skillActive, ASkill arg2)
@@ -71,6 +71,7 @@ public class GUIPlayerSkill : MonoBehaviour
         if (skillActive == false)
         {
             ResetSkill(null, 0);
+            currentSkill = null;
         }
     }
 }

@@ -61,12 +61,12 @@ PrefabInstance:
     - target: {fileID: 1072779622960079760, guid: 7fe42f58a71ed2f4f8050f9633f96976,
         type: 3}
       propertyPath: networkId
-      value: 503
+      value: 577
       objectReference: {fileID: 0}
     - target: {fileID: 3531068853511023012, guid: 7fe42f58a71ed2f4f8050f9633f96976,
         type: 3}
       propertyPath: networkId
-      value: 504
+      value: 578
       objectReference: {fileID: 0}
     - target: {fileID: 6509900568896057569, guid: 7fe42f58a71ed2f4f8050f9633f96976,
         type: 3}

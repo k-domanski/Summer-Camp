@@ -26,7 +26,7 @@ public class PlayerData : ElympicsMonoBehaviour
             var skillSpawner = other.GetComponentInParent<SkillSpawner>();
             if (skillSpawner != null && skillSpawner.AvailableForPickUp)
             {
-                if (skillController.TriggerSkillPickup(skillSpawner.SkillID.Value))
+                if (skillController.TriggerSkillPickup(skillSpawner.SkillID))
                 {
                     skillSpawner.Pick();
                 }

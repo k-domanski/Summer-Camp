@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
 using UnityEngine.Serialization;
@@ -8,30 +6,26 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
 {
     [SerializeField] private Sprite skillImage;
     [SerializeField] private int skillID;
-    [SerializeField] protected float fireRate = 60.0f;
+    [SerializeField] protected float skillCooldownSeconds = 2.25f;
     [SerializeField] protected int skillCharges = 1;
     [SerializeField] protected SkillIndicator indicator;
     [SerializeField] protected SkillEffect effect;
-
-
-    protected float timeBetweenShots = 0.0f;
-    public float TimeBetweenShots => timeBetweenShots;
+    
     public GameObject Owner => transform.root.gameObject;
     public SkillIndicator Indicator => indicator;
     public int SkillID => skillID;
     public bool HasCharges => skillCurrentCharges.Value > 0;
     public int Charges => skillCurrentCharges.Value;
     public Sprite SkillImage => skillImage; 
-    protected bool isReady => CurrentTimeBetweenShots.Value >= timeBetweenShots;
-    
-    public ElympicsFloat TimeRatio = new ElympicsFloat();
+    protected bool isReady => CurrentTimeBetweenShots.Value >= skillCooldownSeconds;
+
+    public float TimeRatio => CurrentTimeBetweenShots.Value / skillCooldownSeconds;
     public ElympicsFloat CurrentTimeBetweenShots = new ElympicsFloat(0.0f);
     protected ElympicsInt skillCurrentCharges = new ElympicsInt();
 
     #region IInitializable
     public void Initialize()
     {
-        CalculateTimeBetweenShots();
         ResetCharges();
     }
     #endregion
@@ -43,8 +37,6 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
         {
             CurrentTimeBetweenShots.Value += Elympics.TickDuration;
         }
-        
-        TimeRatio.Value = CurrentTimeBetweenShots.Value / timeBetweenShots;
     }
     #endregion
 
@@ -74,17 +66,5 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
         }
 
         return result;
-    }
-
-    private void CalculateTimeBetweenShots()
-    {
-        if(fireRate > 0)
-        {
-            timeBetweenShots = 60.0f / fireRate;
-        }
-        else
-        {
-            timeBetweenShots = 0.0f;
-        }
     }
 }

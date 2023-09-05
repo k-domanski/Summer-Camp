@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Elympics;
-using System;
 
 public class SkillCooldownUI : MonoBehaviour
 {
@@ -35,7 +31,7 @@ public class SkillCooldownUI : MonoBehaviour
     private void Update()
     {
         if(skill != null)
-            cooldownIndicator.fillAmount = skill.TimeRatio.Value;
+            cooldownIndicator.fillAmount = skill.TimeRatio;
     }
 
     private void ShowIndicator(bool show, ASkill skill)
