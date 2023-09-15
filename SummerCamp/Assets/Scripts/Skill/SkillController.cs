@@ -20,9 +20,9 @@ public class SkillController : ElympicsMonoBehaviour
             return;
         }
         
-        currentSkill.Indicator.ShowIndicator(isActive);
+        currentSkill.Indicator.ShowIndicator(true);
 
-        if(isActive)
+        if(true)
         {
             currentSkill.UpdateAimPosition(worldPos);
             
