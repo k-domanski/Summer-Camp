@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceNetworkId: 0
-  networkId: 562
+  networkId: 597
   predictableFor:
     playerIndex: -2
   isUpdatableForNonOwners: 0
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 476014704054538892}
   - component: {fileID: 4657214137964910530}
   - component: {fileID: 3067538461624161263}
-  - component: {fileID: 3751033030644233521}
+  - component: {fileID: 3549266082501954691}
   m_Layer: 0
   m_Name: SkillSpawner
   m_TagString: Untagged
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceNetworkId: 0
-  networkId: 563
+  networkId: 596
   predictableFor:
     playerIndex: -2
   isUpdatableForNonOwners: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f422823cf7c74d30b6473ef0e0097292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3751033030644233521
+--- !u!114 &3549266082501954691
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.56949115, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

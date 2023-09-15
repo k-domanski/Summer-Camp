@@ -2248,7 +2248,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.35
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3751033030644233521, guid: 90e356019351dbf46bbadc7e6ab6565e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 90e356019351dbf46bbadc7e6ab6565e, type: 3}
 --- !u!1001 &247437036
 PrefabInstance:
@@ -5197,6 +5198,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &873629728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1269194715430075698, guid: 90e356019351dbf46bbadc7e6ab6565e,
+    type: 3}
+  m_PrefabInstance: {fileID: 246451774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &873629736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873629728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b382d63b93bdf4bbeda8299ce4a906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localPositionConfig:
+    synchronizationEnabled: 1
+    tolerance: 0.01
+  localScaleConfig:
+    synchronizationEnabled: 1
+    tolerance: 0.01
+  localRotationConfig:
+    synchronizationEnabled: 1
+    tolerance: 1
 --- !u!1001 &877288311
 PrefabInstance:
   m_ObjectHideFlags: 0
