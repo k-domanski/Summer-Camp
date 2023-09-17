@@ -14,6 +14,7 @@ public class Bomb : ElympicsMonoBehaviour, IUpdatable, IRemovable
     [Header("References")]
     [SerializeField] private GameObject bombModel;
     [SerializeField] private ParticleSystem explosionParticles;
+    [SerializeField] private AudioSource audioSource;
 
     public ElympicsFloat currentBombTime = new ElympicsFloat();
     public ElympicsFloat currentTimeToDestroy = new ElympicsFloat();
@@ -76,6 +77,9 @@ public class Bomb : ElympicsMonoBehaviour, IUpdatable, IRemovable
     private void PlayExplosionParticles(bool lastValue, bool newValue)
     {
         if (newValue)
+        {
+            audioSource.Play();
             explosionParticles.Play();
+        }
     }
 }
