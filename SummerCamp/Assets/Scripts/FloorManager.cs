@@ -50,7 +50,7 @@ public class FloorManager : MonoBehaviour
 
     private IOrderedEnumerable<FloorTile> GetRandomizedSpawnPoints()
     {
-        return FloorTiles.OrderBy(x => random.Next());
+        return FloorTiles.OrderBy(x => random.Next()).OrderBy(x=>x.Priority);
     }
 
     [ContextMenu("Set Tiles Position")]

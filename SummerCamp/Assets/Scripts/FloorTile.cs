@@ -5,6 +5,9 @@ public class FloorTile : ElympicsMonoBehaviour
 {
     [SerializeField]
     private MeshRenderer rend;
+    [SerializeField] private int priority = 0;
+
+    public int Priority => priority;
 
     protected ElympicsBool Marked { get; private set; } = new ElympicsBool();
     
