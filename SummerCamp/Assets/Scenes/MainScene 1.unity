@@ -661,6 +661,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8479146813794226266, guid: b2d37179b59ca7948a15e51b35011884,
         type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479146813794226266, guid: b2d37179b59ca7948a15e51b35011884,
+        type: 3}
       propertyPath: orthographic
       value: 0
       objectReference: {fileID: 0}
@@ -668,6 +673,21 @@ PrefabInstance:
         type: 3}
       propertyPath: field of view
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479146813794226266, guid: b2d37179b59ca7948a15e51b35011884,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.4745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479146813794226266, guid: b2d37179b59ca7948a15e51b35011884,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.4014879
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479146813794226266, guid: b2d37179b59ca7948a15e51b35011884,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.19215688
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2d37179b59ca7948a15e51b35011884, type: 3}
@@ -3415,7 +3435,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -12146,6 +12166,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Timer
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101001386271712847, guid: 4962226ec01b7f342a920593841dcdfd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101001386668136951, guid: 4962226ec01b7f342a920593841dcdfd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4962226ec01b7f342a920593841dcdfd, type: 3}
