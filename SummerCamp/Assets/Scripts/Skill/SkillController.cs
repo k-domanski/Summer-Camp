@@ -5,7 +5,6 @@ using System;
 public class SkillController : ElympicsMonoBehaviour
 {
     [SerializeField] private ASkill currentSkill;
-
     public bool IsSkillAssigned => currentSkill != null;
     public int SkillID => currentSkill.SkillID;
 

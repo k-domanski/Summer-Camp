@@ -7743,6 +7743,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1604701050642744798}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1487379695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7432244773199045847, guid: cff24950430567a4b876bbdfbe67d33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1817783860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc66da62117215e419518b56efee14e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1495062836
 GameObject:
   m_ObjectHideFlags: 0
@@ -9454,18 +9466,18 @@ PrefabInstance:
     - target: {fileID: 5848162032822881422, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: allskills.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5848162032822881422, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: allskills.Array.data[0]
       value: 
-      objectReference: {fileID: 1817783862}
+      objectReference: {fileID: 1540072480}
     - target: {fileID: 5848162032822881422, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: allskills.Array.data[1]
       value: 
-      objectReference: {fileID: 1540072480}
+      objectReference: {fileID: 1487379695}
     - target: {fileID: 5848162032822881422, guid: cff24950430567a4b876bbdfbe67d33d,
         type: 3}
       propertyPath: allskills.Array.data[2]
