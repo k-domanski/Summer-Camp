@@ -5,8 +5,6 @@ using Elympics;
 
 public class CameraInitializer : ElympicsMonoBehaviour, IInitializable
 {
-    [SerializeField] private Camera serverCamera = null;
-
     public void Initialize()
     {
         PlayerData playerData = GetComponentInChildren<PlayerData>();

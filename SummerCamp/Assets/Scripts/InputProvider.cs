@@ -11,6 +11,7 @@ public class InputProvider : MonoBehaviour
     public bool FireSecondarySkill { get; private set; }
     public bool ActivePrimarySkill { get; private set; }
     public bool ActiveSecondarySkill { get; private set; }
+    public bool ShowScoreboard { get; private set; }
 
     private MainControls mainControls;
 
@@ -48,7 +49,10 @@ public class InputProvider : MonoBehaviour
         mainControls.Player.Attack.started += OnAttack;
         mainControls.Player.Attack.canceled += OnAttack;
         mainControls.Player.MousePos.performed += OnMouseMove;
+        mainControls.Player.ShowScoreboard.started += OnShowScoreboard;
+        mainControls.Player.ShowScoreboard.canceled += OnShowScoreboard;
     }
+
 
     private void UnsubscribeFromPlayerActions()
     {
@@ -61,6 +65,8 @@ public class InputProvider : MonoBehaviour
         mainControls.Player.Attack.started -= OnAttack;
         mainControls.Player.Attack.canceled -= OnAttack;
         mainControls.Player.MousePos.performed -= OnMouseMove;
+        mainControls.Player.ShowScoreboard.started -= OnShowScoreboard;
+        mainControls.Player.ShowScoreboard.canceled -= OnShowScoreboard;
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -94,5 +100,11 @@ public class InputProvider : MonoBehaviour
     private void OnReturnToMenu(InputAction.CallbackContext context)
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void OnShowScoreboard(InputAction.CallbackContext context)
+    {
+        ShowScoreboard = context.started ? true : false;
+        ShowScoreboard = context.canceled ? false : true;
     }
 }

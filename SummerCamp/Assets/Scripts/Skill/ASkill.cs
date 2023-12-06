@@ -1,32 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
+using UnityEngine.Serialization;
 
 public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
 {
+    [SerializeField] private Sprite skillImage;
     [SerializeField] private int skillID;
-    [SerializeField] protected float fireRate = 60.0f;
+    [SerializeField] protected float skillCooldownSeconds = 2.25f;
     [SerializeField] protected int skillCharges = 1;
     [SerializeField] protected SkillIndicator indicator;
     [SerializeField] protected SkillEffect effect;
-
-    public ElympicsFloat TimeRatio { get; private set; } = new ElympicsFloat();
-    public float TimeBetweenShots => timeBetweenShots;
+    
     public GameObject Owner => transform.root.gameObject;
     public SkillIndicator Indicator => indicator;
     public int SkillID => skillID;
     public bool HasCharges => skillCurrentCharges.Value > 0;
+    public int Charges => skillCurrentCharges.Value;
+    public Sprite SkillImage => skillImage; 
+    protected bool isReady => CurrentTimeBetweenShots.Value >= skillCooldownSeconds;
 
-    protected ElympicsFloat currentTimeBetweenShots = new ElympicsFloat(0.0f);
-    protected float timeBetweenShots = 0.0f;
-    protected bool isReady => currentTimeBetweenShots.Value >= timeBetweenShots;
+    public float TimeRatio => CurrentTimeBetweenShots.Value / skillCooldownSeconds;
+    public ElympicsFloat CurrentTimeBetweenShots = new ElympicsFloat(0.0f);
     protected ElympicsInt skillCurrentCharges = new ElympicsInt();
+
+    protected bool canUseSkill = false;
 
     #region IInitializable
     public void Initialize()
     {
-        CalculateTimeBetweenShots();
         ResetCharges();
     }
     #endregion
@@ -36,15 +37,14 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
     {
         if (!isReady)
         {
-            currentTimeBetweenShots.Value += Elympics.TickDuration;
+            CurrentTimeBetweenShots.Value += Elympics.TickDuration;
         }
-        TimeRatio.Value = currentTimeBetweenShots.Value / timeBetweenShots;
     }
     #endregion
 
-    public void PerformPrimaryAction()
+    public bool TryPerformPrimaryAction()
     {
-        ExecutePrimaryActionIfReady();
+        return ExecutePrimaryActionIfReady();
     }
 
     public void ResetCharges()
@@ -56,25 +56,17 @@ public abstract class ASkill : ElympicsMonoBehaviour, IInitializable, IUpdatable
 
     protected abstract void ProcessSkillAction();
 
-    private void ExecutePrimaryActionIfReady()
+    private bool ExecutePrimaryActionIfReady()
     {
-        if(isReady)
+        bool result = isReady;
+        
+        if(isReady && canUseSkill)
         {
             ProcessSkillAction();
-            currentTimeBetweenShots.Value = 0.0f;
+            CurrentTimeBetweenShots.Value = 0.0f;
             skillCurrentCharges.Value--;
         }
-    }
 
-    private void CalculateTimeBetweenShots()
-    {
-        if(fireRate > 0)
-        {
-            timeBetweenShots = 60.0f / fireRate;
-        }
-        else
-        {
-            timeBetweenShots = 0.0f;
-        }
+        return result;
     }
 }

@@ -12,7 +12,8 @@ public class PlayersProvider : ElympicsMonoBehaviour, IInitializable
     public bool IsReady { get; private set; }
 
     public event Action IsReadyChanged;
-
+    public event Action PlayerDied;
+    
     public void Initialize()
     {
         FindAllPlayers();
@@ -30,6 +31,18 @@ public class PlayersProvider : ElympicsMonoBehaviour, IInitializable
     private void FindAllPlayers()
     {
         AllPlayers = FindObjectsOfType<PlayerData>().OrderBy(x => x.PlayerID).ToArray();
+        foreach (var playerData in AllPlayers)
+        {
+            if (playerData.TryGetComponent(out DeathController deathController))
+            {
+                deathController.onPlayerDeath += OnPlayerDeath;
+            }
+        }
+    }
+
+    private void OnPlayerDeath(int obj)
+    {
+        PlayerDied?.Invoke();
     }
 
     private void FindClientPlayer()

@@ -3,20 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
 
-public class SlowEffectArea : MonoBehaviour
+public class SlowEffectArea : ElympicsMonoBehaviour, IUpdatable, IRemovable
 {
+    [SerializeField] private float activeTime = 0.0f;
+
+    protected ElympicsBool markedToDestroy = new ElympicsBool();
+    protected ElympicsFloat currentTime = new ElympicsFloat();
+
     private ElympicsGameObject owner = new ElympicsGameObject();
     private SkillEffect effect;
-
-    public void SetOwner(ElympicsBehaviour owner)
-    {
-        this.owner.Value = owner;
-    }
-
-    public void SetEffect(SkillEffect effect)
-    {
-        this.effect = effect;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,5 +25,33 @@ public class SlowEffectArea : MonoBehaviour
         {
             effectController.ApplyEffect(effect);
         }    
+    }
+
+    public void SetOwner(ElympicsBehaviour owner)
+    {
+        this.owner.Value = owner;
+    }
+
+    public void SetEffect(SkillEffect effect)
+    {
+        this.effect = effect;
+    }
+
+    public void Remove()
+    {
+        markedToDestroy.Value = true;
+    }
+
+    public void ElympicsUpdate()
+    {
+        if(markedToDestroy.Value)
+        {
+            ElympicsDestroy(this.gameObject);
+        }
+
+        currentTime.Value += Elympics.TickDuration;
+
+        if (currentTime.Value >= activeTime)
+            markedToDestroy.Value = true;
     }
 }

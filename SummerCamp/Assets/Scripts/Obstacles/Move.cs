@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Elympics;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Move : ElympicsMonoBehaviour, IUpdatable
 {
@@ -15,53 +12,90 @@ public class Move : ElympicsMonoBehaviour, IUpdatable
     private float reachMargin = 0.05f;
     [SerializeField]
     private float moveSpeed = 3f;
-
+    [SerializeField]
+    private GameManager gameManager;
+    [SerializeField]
+    private PlayersProvider playersProvider;
+    [SerializeField]
+    private GameObject[] obstaclesRoot;
+    
+    private Vector3 startPos;
     private Vector3 currentDirection;
-    private bool toOrigin;
-
+    private GameObject currentObstacle;
+    
     private void Start()
     {
-        MoveToDestination();
+        if (Elympics.IsClient)
+        {
+            return;
+        }
+        startPos = origin.position;
+        ServerRegisterToPlayersDeath();
+        
+        currentDirection = (destination.position - origin.position).normalized;
+        
+        foreach (var obstacleRoot in obstaclesRoot)
+        {
+            obstacleRoot.SetActive(false);
+        }
+        
+        gameManager.RaceStarted += ResetObstacles;
+    }
+
+    private void ServerRegisterToPlayersDeath()
+    {
+        if (Elympics.IsServer == false)
+        {
+            return;
+        }
+
+        playersProvider.PlayerDied += ResetObstacles;
+    }
+
+    private void ResetObstacles()
+    {
+        if (currentObstacle != null)
+        {
+            currentObstacle.SetActive(false);
+        }
+
+        currentObstacle = GetRandomObstacle();
+        currentObstacle.SetActive(true);
+        
+        this.transform.position = startPos;
+    }
+
+    private GameObject GetRandomObstacle()
+    {
+        int randomIndex = UnityEngine.Random.Range(0, obstaclesRoot.Length);
+        return obstaclesRoot[randomIndex];
+    }
+
+    private void OnDestroy()
+    {
+        gameManager.RaceStarted -= ResetObstacles;
     }
 
     public void ElympicsUpdate()
     {
-        this.transform.position += currentDirection * (Elympics.TickDuration * moveSpeed);
-        CheckReached();
+        if (gameManager.IsRunning.Value)
+        {
+            this.transform.position += currentDirection * (Elympics.TickDuration * moveSpeed);
+        }
+
+        if (Elympics.IsServer && CheckReached())
+        {
+            ResetObstacles();
+        }
     }
 
-    private void CheckReached()
+    private bool CheckReached()
     {
-        if (toOrigin)
-        {
-            if (CheckpointReached(origin.position))
-            {
-                MoveToDestination();
-            }
-        }
-        else
-        {
-            if (CheckpointReached(destination.position))
-            {
-                MoveToOrigin();
-            }
-        }
+        return CheckpointReached(destination.position);
     }
 
     private bool CheckpointReached(Vector3 checkpointPosition)
     {
         return Vector3.Distance(this.transform.position, checkpointPosition) <= reachMargin;
-    }
-
-    private void MoveToOrigin()
-    {
-        toOrigin = true;
-        currentDirection = (origin.position - destination.position).normalized;
-    }
-
-    private void MoveToDestination()
-    {
-        toOrigin = false;
-        currentDirection = (destination.position - origin.position).normalized;
     }
 }

@@ -31,7 +31,7 @@ public class RaceTimer : MonoBehaviour
 
     private void OnIsRunningValueChanged(bool lastvalue, bool newvalue)
     {
-        raceTimer.gameObject.SetActive(newvalue);
+        //raceTimer.gameObject.SetActive(newvalue);
     }
 
     private void OnIsStartingValueChanged(bool lastvalue, bool newvalue)

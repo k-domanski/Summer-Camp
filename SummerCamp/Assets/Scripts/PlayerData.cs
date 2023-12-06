@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class PlayerData : ElympicsMonoBehaviour
 {
-    public int PlayerID => playerID;
-
     [SerializeField] private int playerID = 0;
     [SerializeField] private PlayerSkillController skillController;
+
+    public int PlayerID => playerID;
+    public PlayerSkillController SkillController => skillController;
     
     public void UsePrimary(bool isFire, bool isActive, Vector3 worldPos)
     {

@@ -19,6 +19,7 @@ public class ProjectileSkill : ASkill
 
     public override void UpdateAimPosition(Vector3 worldPosition)
     {
+        canUseSkill = true;         // dirty way for spawning skills to check if floor is there
         indicator.ApplyRotation(worldPosition);
         worldPosition.y = spawnPoint.position.y;
         direction = (worldPosition - spawnPoint.position).normalized;

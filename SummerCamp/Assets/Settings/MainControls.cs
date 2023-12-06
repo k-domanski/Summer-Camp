@@ -91,6 +91,15 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=2)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShowScoreboard"",
+                    ""type"": ""Button"",
+                    ""id"": ""c46a8d8e-3b5b-431a-a444-5d39d96ff1ab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -355,6 +364,17 @@ namespace UnityEngine.InputSystem
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ReturnToMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91e60389-e0a6-4d32-a3a4-e117c608005f"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ShowScoreboard"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -949,6 +969,7 @@ namespace UnityEngine.InputSystem
             m_Player_MousePos = m_Player.FindAction("MousePos", throwIfNotFound: true);
             m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
             m_Player_ReturnToMenu = m_Player.FindAction("ReturnToMenu", throwIfNotFound: true);
+            m_Player_ShowScoreboard = m_Player.FindAction("ShowScoreboard", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1027,6 +1048,7 @@ namespace UnityEngine.InputSystem
         private readonly InputAction m_Player_MousePos;
         private readonly InputAction m_Player_Attack;
         private readonly InputAction m_Player_ReturnToMenu;
+        private readonly InputAction m_Player_ShowScoreboard;
         public struct PlayerActions
         {
             private @MainControls m_Wrapper;
@@ -1038,6 +1060,7 @@ namespace UnityEngine.InputSystem
             public InputAction @MousePos => m_Wrapper.m_Player_MousePos;
             public InputAction @Attack => m_Wrapper.m_Player_Attack;
             public InputAction @ReturnToMenu => m_Wrapper.m_Player_ReturnToMenu;
+            public InputAction @ShowScoreboard => m_Wrapper.m_Player_ShowScoreboard;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1068,6 +1091,9 @@ namespace UnityEngine.InputSystem
                     @ReturnToMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReturnToMenu;
                     @ReturnToMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReturnToMenu;
                     @ReturnToMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReturnToMenu;
+                    @ShowScoreboard.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShowScoreboard;
+                    @ShowScoreboard.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShowScoreboard;
+                    @ShowScoreboard.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShowScoreboard;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1093,6 +1119,9 @@ namespace UnityEngine.InputSystem
                     @ReturnToMenu.started += instance.OnReturnToMenu;
                     @ReturnToMenu.performed += instance.OnReturnToMenu;
                     @ReturnToMenu.canceled += instance.OnReturnToMenu;
+                    @ShowScoreboard.started += instance.OnShowScoreboard;
+                    @ShowScoreboard.performed += instance.OnShowScoreboard;
+                    @ShowScoreboard.canceled += instance.OnShowScoreboard;
                 }
             }
         }
@@ -1256,6 +1285,7 @@ namespace UnityEngine.InputSystem
             void OnMousePos(InputAction.CallbackContext context);
             void OnAttack(InputAction.CallbackContext context);
             void OnReturnToMenu(InputAction.CallbackContext context);
+            void OnShowScoreboard(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

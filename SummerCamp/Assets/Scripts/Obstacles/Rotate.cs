@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Elympics;
 
-public class Rotate : ElympicsMonoBehaviour, IUpdatable
+public class Rotate : ElympicsMonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private Vector3 rotationAxis;
 
-    public void ElympicsUpdate()
+    public void Update()
     {
-        transform.Rotate(rotationAxis, Elympics.TickDuration * speed);
+        transform.Rotate(rotationAxis, Time.deltaTime * speed);
     }
 }
